@@ -1,13 +1,11 @@
 <?php
 
-class DAOSkill extends DAO implements IDAO
+class DAOAccount extends DAO implements IDAO
 {
-
 
     public function create(object $obj): Boolean
     {
         // TODO: Implement create() method.
-
     }
 
     public function read(int $id): object
