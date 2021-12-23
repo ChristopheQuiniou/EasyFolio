@@ -12,8 +12,8 @@ CREATE TABLE `Account`  (
 );
 
 CREATE TABLE `AssociationSP`  (
-  `idSkill` varchar(255) NOT NULL,
-  `idProject` varchar(255) NOT NULL,
+  `idSkill` int NOT NULL,
+  `idProject` int NOT NULL,
   PRIMARY KEY (`idSkill`, `idProject`)
 );
 

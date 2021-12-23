@@ -1001,173 +1001,6 @@
           },
           {
             "objectType": "Table_MYSQL",
-            "name": "AssociationSP",
-            "comment": "",
-            "engine": "",
-            "characterSet": "",
-            "collation": "",
-            "autoIncrement": 0,
-            "tablespace": "",
-            "storage": "",
-            "insertMethod": "",
-            "connection": "",
-            "checksum": false,
-            "rowFormat": "",
-            "avgRowLength": 0,
-            "maxRows": 0,
-            "minRows": 0,
-            "keyBlockSize": 0,
-            "packKeys": "",
-            "delayKeyWrite": false,
-            "dataDirectory": "",
-            "indexDirectory": "",
-            "statsAutoRecalc": "",
-            "statsPersistent": "",
-            "statsSamplePages": 0,
-            "union": "",
-            "pageCheckSum": false,
-            "transactional": false,
-            "compression": "",
-            "oldName": "",
-            "encryption": false,
-            "createOptions": "",
-            "createTime": "",
-            "checkTime": "",
-            "dataFree": 0,
-            "dataLength": 0,
-            "indexLength": 0,
-            "maxDataLength": 0,
-            "rows": 0,
-            "updateTime": "",
-            "DDL": "",
-            "partitionBy": "",
-            "partitionByExpr": "",
-            "partitions": 0,
-            "partitionKeyAlgorithm": "",
-            "subPartitionBy": "",
-            "subPartitionByExpr": "",
-            "subPartitions": 0,
-            "subPartitionKeyAlgorithm": "",
-            "fields": [
-              {
-                "objectType": "TableField_MYSQL",
-                "name": "idSkill",
-                "type": "varchar",
-                "length": 255,
-                "decimals": -2147483648,
-                "isUnsigned": false,
-                "isZeroFill": false,
-                "setEnumValues": "",
-                "isBinary": false,
-                "charset": "",
-                "collation": "",
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "isOnUpdateCurrentTimestamp": false,
-                "isAutoInc": false,
-                "comment": "",
-                "columnFormat": "",
-                "storage": "",
-                "isVirtual": false,
-                "isGeneratedAlways": false,
-                "virtualExpr": "",
-                "virtualType": "",
-                "oldName": "idSkill"
-              },
-              {
-                "objectType": "TableField_MYSQL",
-                "name": "idProject",
-                "type": "varchar",
-                "length": 255,
-                "decimals": -2147483648,
-                "isUnsigned": false,
-                "isZeroFill": false,
-                "setEnumValues": "",
-                "isBinary": false,
-                "charset": "",
-                "collation": "",
-                "isNullable": false,
-                "defaultType": "None",
-                "defaultValue": "",
-                "isOnUpdateCurrentTimestamp": false,
-                "isAutoInc": false,
-                "comment": "",
-                "columnFormat": "",
-                "storage": "",
-                "isVirtual": false,
-                "isGeneratedAlways": false,
-                "virtualExpr": "",
-                "virtualType": "",
-                "oldName": "idProject"
-              }
-            ],
-            "indexes": [],
-            "primaryKey": {
-              "objectType": "PrimaryKey_MYSQL",
-              "name": "",
-              "fields": [
-                {
-                  "objectType": "IndexField_MYSQL",
-                  "name": "idSkill",
-                  "keyLength": 0,
-                  "order": "",
-                  "oldName": ""
-                },
-                {
-                  "objectType": "IndexField_MYSQL",
-                  "name": "idProject",
-                  "keyLength": 0,
-                  "order": "",
-                  "oldName": ""
-                }
-              ],
-              "oldName": "",
-              "indexMethod": "",
-              "comment": ""
-            },
-            "foreignKeys": [
-              {
-                "objectType": "ForeignKey_MYSQL",
-                "name": "fk_AssociationSP_Skill_1",
-                "fields": [
-                  "idSkill"
-                ],
-                "referenceSchema": "default",
-                "referenceTable": "Skill",
-                "referenceFields": [
-                  "id"
-                ],
-                "onDelete": "",
-                "onUpdate": "",
-                "sourceCardinality": "NoneRelationship",
-                "targetCardinality": "NoneRelationship",
-                "oldName": ""
-              },
-              {
-                "objectType": "ForeignKey_MYSQL",
-                "name": "fk_AssociationSP_Project_1",
-                "fields": [
-                  "idProject"
-                ],
-                "referenceSchema": "default",
-                "referenceTable": "Project",
-                "referenceFields": [
-                  "id"
-                ],
-                "onDelete": "",
-                "onUpdate": "",
-                "sourceCardinality": "NoneRelationship",
-                "targetCardinality": "NoneRelationship",
-                "oldName": ""
-              }
-            ],
-            "checks": [],
-            "triggers": [],
-            "tablePartitions": []
-          },
-          {
-            "objectType": "Table_MYSQL",
             "name": "default",
             "comment": "",
             "engine": "",
@@ -1553,6 +1386,173 @@
             "checks": [],
             "triggers": [],
             "tablePartitions": []
+          },
+          {
+            "objectType": "Table_MYSQL",
+            "name": "AssociationSP",
+            "comment": "",
+            "engine": "",
+            "characterSet": "",
+            "collation": "",
+            "autoIncrement": 0,
+            "tablespace": "",
+            "storage": "",
+            "insertMethod": "",
+            "connection": "",
+            "checksum": false,
+            "rowFormat": "",
+            "avgRowLength": 0,
+            "maxRows": 0,
+            "minRows": 0,
+            "keyBlockSize": 0,
+            "packKeys": "",
+            "delayKeyWrite": false,
+            "dataDirectory": "",
+            "indexDirectory": "",
+            "statsAutoRecalc": "",
+            "statsPersistent": "",
+            "statsSamplePages": 0,
+            "union": "",
+            "pageCheckSum": false,
+            "transactional": false,
+            "compression": "",
+            "oldName": "",
+            "encryption": false,
+            "createOptions": "",
+            "createTime": "",
+            "checkTime": "",
+            "dataFree": 0,
+            "dataLength": 0,
+            "indexLength": 0,
+            "maxDataLength": 0,
+            "rows": 0,
+            "updateTime": "",
+            "DDL": "",
+            "partitionBy": "",
+            "partitionByExpr": "",
+            "partitions": 0,
+            "partitionKeyAlgorithm": "",
+            "subPartitionBy": "",
+            "subPartitionByExpr": "",
+            "subPartitions": 0,
+            "subPartitionKeyAlgorithm": "",
+            "fields": [
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "idSkill",
+                "type": "int",
+                "length": -2147483648,
+                "decimals": -2147483648,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "idSkill"
+              },
+              {
+                "objectType": "TableField_MYSQL",
+                "name": "idProject",
+                "type": "int",
+                "length": -2147483648,
+                "decimals": -2147483648,
+                "isUnsigned": false,
+                "isZeroFill": false,
+                "setEnumValues": "",
+                "isBinary": false,
+                "charset": "",
+                "collation": "",
+                "isNullable": false,
+                "defaultType": "None",
+                "defaultValue": "",
+                "isOnUpdateCurrentTimestamp": false,
+                "isAutoInc": false,
+                "comment": "",
+                "columnFormat": "",
+                "storage": "",
+                "isVirtual": false,
+                "isGeneratedAlways": false,
+                "virtualExpr": "",
+                "virtualType": "",
+                "oldName": "idProject"
+              }
+            ],
+            "indexes": [],
+            "primaryKey": {
+              "objectType": "PrimaryKey_MYSQL",
+              "name": "",
+              "fields": [
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "idSkill",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": ""
+                },
+                {
+                  "objectType": "IndexField_MYSQL",
+                  "name": "idProject",
+                  "keyLength": 0,
+                  "order": "",
+                  "oldName": ""
+                }
+              ],
+              "oldName": "",
+              "indexMethod": "",
+              "comment": ""
+            },
+            "foreignKeys": [
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "fk_AssociationSP_Skill_1",
+                "fields": [
+                  "idSkill"
+                ],
+                "referenceSchema": "default",
+                "referenceTable": "Skill",
+                "referenceFields": [
+                  "id"
+                ],
+                "onDelete": "",
+                "onUpdate": "",
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "oldName": ""
+              },
+              {
+                "objectType": "ForeignKey_MYSQL",
+                "name": "fk_AssociationSP_Project_1",
+                "fields": [
+                  "idProject"
+                ],
+                "referenceSchema": "default",
+                "referenceTable": "Project",
+                "referenceFields": [
+                  "id"
+                ],
+                "onDelete": "",
+                "onUpdate": "",
+                "sourceCardinality": "NoneRelationship",
+                "targetCardinality": "NoneRelationship",
+                "oldName": ""
+              }
+            ],
+            "checks": [],
+            "triggers": [],
+            "tablePartitions": []
           }
         ],
         "views": []
@@ -1569,7 +1569,7 @@
       "isBalckWhite": false,
       "showDBSchemaName": false,
       "showViewRelations": true,
-      "notation": "xml",
+      "notation": "default",
       "showFieldComment": false,
       "showTableComment": false,
       "shapes": [
@@ -1577,8 +1577,8 @@
           "type": "table",
           "schemaName": "default",
           "tableName": "Skill",
-          "x": 100,
-          "y": 601,
+          "x": 103,
+          "y": 595,
           "width": 223,
           "height": 99,
           "isBold": false,
@@ -1765,11 +1765,11 @@
           "vertices": [
             {
               "x": 991,
-              "y": 806
+              "y": 817
             },
             {
               "x": 1034,
-              "y": 806
+              "y": 817
             },
             {
               "x": 1034,
@@ -1782,7 +1782,7 @@
           ],
           "label": {
             "x": 987,
-            "y": 779,
+            "y": 790,
             "width": 119,
             "height": 29,
             "fontName": "Sans",
@@ -1810,16 +1810,16 @@
               "y": 697
             },
             {
-              "x": 362,
+              "x": 375,
               "y": 697
             },
             {
-              "x": 362,
-              "y": 645
+              "x": 375,
+              "y": 639
             },
             {
-              "x": 338,
-              "y": 645
+              "x": 341,
+              "y": 639
             }
           ],
           "label": {
@@ -1852,16 +1852,16 @@
               "y": 716
             },
             {
-              "x": 701,
+              "x": 700,
               "y": 716
             },
             {
-              "x": 701,
-              "y": 640
+              "x": 700,
+              "y": 644
             },
             {
               "x": 761,
-              "y": 640
+              "y": 644
             }
           ],
           "label": {

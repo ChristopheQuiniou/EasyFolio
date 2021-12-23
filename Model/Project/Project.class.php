@@ -5,29 +5,28 @@ class Project
 
     private Integer $id;
     private String $title;
-    private Integer $startDate;
-    private Integer $endDate;
+    private String $startDate;
+    private String $endDate;
     private String $place;
     private String $summary;
     private String $description;
     private String $git;
     private String $kanban;
-    private Array $skills;
-    //source code attr
+    private Integer $theCV;
 
     /**
-    * @param int $id
-    * @param String $title
-    * @param int $startDate
-    * @param int $endDate
-    * @param String $place
-    * @param String $summary
-    * @param String $description
-    * @param String $git
-    * @param String $kanban
-    * @param array $skills
-    */
-    public function __construct(int $id, string $title, int $startDate, int $endDate, string $place, string $summary, string $description, string $git, string $kanban, array $skills)
+     * @param int $id
+     * @param String $title
+     * @param String $startDate
+     * @param String $endDate
+     * @param String $place
+     * @param String $summary
+     * @param String $description
+     * @param String $git
+     * @param String $kanban
+     * @param int $theCV
+     */
+    public function __construct(int $id, string $title, string $startDate, string $endDate, string $place, string $summary, string $description, string $git, string $kanban, int $theCV)
     {
         $this->id = $id;
         $this->title = $title;
@@ -38,7 +37,7 @@ class Project
         $this->description = $description;
         $this->git = $git;
         $this->kanban = $kanban;
-        $this->skills = $skills;
+        $this->theCV = $theCV;
     }
 
     /**
@@ -74,33 +73,33 @@ class Project
     }
 
     /**
-     * @return int
+     * @return String
      */
-    public function getStartDate(): int
+    public function getStartDate(): string
     {
         return $this->startDate;
     }
 
     /**
-     * @param int $startDate
+     * @param String $startDate
      */
-    public function setStartDate(int $startDate): void
+    public function setStartDate(string $startDate): void
     {
         $this->startDate = $startDate;
     }
 
     /**
-     * @return int
+     * @return String
      */
-    public function getEndDate(): int
+    public function getEndDate(): string
     {
         return $this->endDate;
     }
 
     /**
-     * @param int $endDate
+     * @param String $endDate
      */
-    public function setEndDate(int $endDate): void
+    public function setEndDate(string $endDate): void
     {
         $this->endDate = $endDate;
     }
@@ -186,20 +185,23 @@ class Project
     }
 
     /**
-     * @return array
+     * @return int
      */
-    public function getSkills(): array
+    public function getTheCV(): int
     {
-        return $this->skills;
+        return $this->theCV;
     }
 
     /**
-     * @param array $skills
+     * @param int $theCV
      */
-    public function setSkills(array $skills): void
+    public function setTheCV(int $theCV): void
     {
-        $this->skills = $skills;
+        $this->theCV = $theCV;
     }
+
+    //source code attr
+
 
 
 

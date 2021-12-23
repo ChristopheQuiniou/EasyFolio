@@ -2,24 +2,26 @@
 
 class CV
 {
+
     private Integer $id;
     private String $title;
     private String $description;
-    private Array $educations;
+    private Integer $theAccount;
 
     /**
      * @param int $id
      * @param String $title
      * @param String $description
-     * @param array $educations
+     * @param int $theAccount
      */
-    public function __construct(int $id, string $title, string $description, array $educations)
+    public function __construct(int $id, string $title, string $description, int $theAccount)
     {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
-        $this->educations = $educations;
+        $this->theAccount = $theAccount;
     }
+
 
     /**
      * @return int
@@ -70,19 +72,19 @@ class CV
     }
 
     /**
-     * @return array
+     * @return int
      */
-    public function getEducations(): array
+    public function getTheAccount(): int
     {
-        return $this->educations;
+        return $this->theAccount;
     }
 
     /**
-     * @param array $educations
+     * @param int $theAccount
      */
-    public function setEducations(array $educations): void
+    public function setTheAccount(int $theAccount): void
     {
-        $this->educations = $educations;
+        $this->theAccount = $theAccount;
     }
 
 

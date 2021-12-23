@@ -6,56 +6,35 @@ class Account
     private Integer $id;
     private String $name;
     private String $surname;
-    private Integer $birthDate;
+    private String $birthdate;
     private String $address;
     private String $phoneNumber;
     private String $emailAddress;
     private String $password;
-    private String $facebook;
-    private String $linkedIn;
-    private String $youtube;
     private String $profilPicture;
-    private Array $educations;
-    private Array $CVs;
-    private Array $skills;
-    private Array $projects;
 
     /**
      * @param int $id
      * @param String $name
      * @param String $surname
-     * @param int $birthDate
+     * @param String $birthdate
      * @param String $address
      * @param String $phoneNumber
      * @param String $emailAddress
      * @param String $password
-     * @param String $facebook
-     * @param String $linkedIn
-     * @param String $youtube
      * @param String $profilPicture
-     * @param array $educations
-     * @param array $CVs
-     * @param array $skills
-     * @param array $projects
      */
-    public function __construct(int $id, string $name, string $surname, int $birthDate, string $address, string $phoneNumber, string $emailAddress, string $password, string $facebook, string $linkedIn, string $youtube, string $profilPicture, array $educations, array $CVs, array $skills, array $projects)
+    public function __construct(int $id, string $name, string $surname, string $birthdate, string $address, string $phoneNumber, string $emailAddress, string $password, string $profilPicture)
     {
         $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
-        $this->birthDate = $birthDate;
+        $this->birthdate = $birthdate;
         $this->address = $address;
         $this->phoneNumber = $phoneNumber;
         $this->emailAddress = $emailAddress;
         $this->password = $password;
-        $this->facebook = $facebook;
-        $this->linkedIn = $linkedIn;
-        $this->youtube = $youtube;
         $this->profilPicture = $profilPicture;
-        $this->educations = $educations;
-        $this->CVs = $CVs;
-        $this->skills = $skills;
-        $this->projects = $projects;
     }
 
 
@@ -108,19 +87,19 @@ class Account
     }
 
     /**
-     * @return int
+     * @return String
      */
-    public function getBirthDate(): int
+    public function getBirthdate(): string
     {
-        return $this->birthDate;
+        return $this->birthdate;
     }
 
     /**
-     * @param int $birthDate
+     * @param String $birthdate
      */
-    public function setBirthDate(int $birthDate): void
+    public function setBirthdate(string $birthdate): void
     {
-        $this->birthDate = $birthDate;
+        $this->birthdate = $birthdate;
     }
 
     /**
@@ -190,54 +169,6 @@ class Account
     /**
      * @return String
      */
-    public function getFacebook(): string
-    {
-        return $this->facebook;
-    }
-
-    /**
-     * @param String $facebook
-     */
-    public function setFacebook(string $facebook): void
-    {
-        $this->facebook = $facebook;
-    }
-
-    /**
-     * @return String
-     */
-    public function getLinkedIn(): string
-    {
-        return $this->linkedIn;
-    }
-
-    /**
-     * @param String $linkedIn
-     */
-    public function setLinkedIn(string $linkedIn): void
-    {
-        $this->linkedIn = $linkedIn;
-    }
-
-    /**
-     * @return String
-     */
-    public function getYoutube(): string
-    {
-        return $this->youtube;
-    }
-
-    /**
-     * @param String $youtube
-     */
-    public function setYoutube(string $youtube): void
-    {
-        $this->youtube = $youtube;
-    }
-
-    /**
-     * @return String
-     */
     public function getProfilPicture(): string
     {
         return $this->profilPicture;
@@ -250,71 +181,6 @@ class Account
     {
         $this->profilPicture = $profilPicture;
     }
-
-    /**
-     * @return array
-     */
-    public function getEducations(): array
-    {
-        return $this->educations;
-    }
-
-    /**
-     * @param array $educations
-     */
-    public function setEducations(array $educations): void
-    {
-        $this->educations = $educations;
-    }
-
-    /**
-     * @return array
-     */
-    public function getCVs(): array
-    {
-        return $this->CVs;
-    }
-
-    /**
-     * @param array $CVs
-     */
-    public function setCVs(array $CVs): void
-    {
-        $this->CVs = $CVs;
-    }
-
-    /**
-     * @return array
-     */
-    public function getSkills(): array
-    {
-        return $this->skills;
-    }
-
-    /**
-     * @param array $skills
-     */
-    public function setSkills(array $skills): void
-    {
-        $this->skills = $skills;
-    }
-
-    /**
-     * @return array
-     */
-    public function getProjects(): array
-    {
-        return $this->projects;
-    }
-
-    /**
-     * @param array $projects
-     */
-    public function setProjects(array $projects): void
-    {
-        $this->projects = $projects;
-    }
-
 
 
 
