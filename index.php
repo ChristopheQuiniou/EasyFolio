@@ -15,6 +15,9 @@ if ( is_null($db) ){
     die();
 }
 
-//Else load router
+//Else initialize DAO and load router
+require_once ("DAO/DAO.class.php");
+$dao = DAO::Init($db);
+
 require_once ("Controller/router.php");
 

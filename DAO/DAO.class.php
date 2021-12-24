@@ -4,10 +4,10 @@ class DAO
 {
 
     protected static Object $db;
-    private static Object $instance;
+    private static ?Object $instance = null;
 
     private function __construct( Object $db ){
-        $this->db = $db;
+        DAO::$db = $db;
     }
 
     /**
