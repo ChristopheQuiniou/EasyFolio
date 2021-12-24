@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS `AssociationSkillProject`;
+DROP TABLE IF EXISTS `Project`;
+DROP TABLE IF EXISTS `Education`;
+DROP TABLE IF EXISTS `CV`;
+DROP TABLE IF EXISTS `Skill`;
+DROP TABLE IF EXISTS `Account`;
+
 CREATE TABLE `Account`  (
   `id` int NOT NULL,
   `name` varchar(255) NULL,
@@ -11,7 +18,7 @@ CREATE TABLE `Account`  (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `AssociationSP`  (
+CREATE TABLE `AssociationSkillProject`  (
   `idSkill` int NOT NULL,
   `idProject` int NOT NULL,
   PRIMARY KEY (`idSkill`, `idProject`)
@@ -25,11 +32,6 @@ CREATE TABLE `CV`  (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `default`  (
-  `idAccount` int NOT NULL,
-  `idSkill` int NOT NULL,
-  PRIMARY KEY (`idAccount`, `idSkill`)
-);
 
 CREATE TABLE `Education`  (
   `id` int NOT NULL,
@@ -60,11 +62,9 @@ CREATE TABLE `Skill`  (
   PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `AssociationSP` ADD CONSTRAINT `fk_AssociationSP_Skill_1` FOREIGN KEY (`idSkill`) REFERENCES `Skill` (`id`);
-ALTER TABLE `AssociationSP` ADD CONSTRAINT `fk_AssociationSP_Project_1` FOREIGN KEY (`idProject`) REFERENCES `Project` (`id`);
+ALTER TABLE `AssociationSkillProject` ADD CONSTRAINT `fk_AssociationSkillProject_Skill_1` FOREIGN KEY (`idSkill`) REFERENCES `Skill` (`id`);
+ALTER TABLE `AssociationSkillProject` ADD CONSTRAINT `fk_AssociationSkillProject_Project_1` FOREIGN KEY (`idProject`) REFERENCES `Project` (`id`);
 ALTER TABLE `CV` ADD CONSTRAINT `fk_CV_Account_1` FOREIGN KEY (`theAccount`) REFERENCES `Account` (`id`);
-ALTER TABLE `default` ADD CONSTRAINT `fk_AssociationAS_Account_1` FOREIGN KEY (`idAccount`) REFERENCES `Account` (`id`);
-ALTER TABLE `default` ADD CONSTRAINT `fk_AssociationAS_Skill_1` FOREIGN KEY (`idSkill`) REFERENCES `Skill` (`id`);
 ALTER TABLE `Education` ADD CONSTRAINT `fk_Education_CV_1` FOREIGN KEY (`theCV`) REFERENCES `CV` (`id`);
 ALTER TABLE `Project` ADD CONSTRAINT `fk_Project_CV_1` FOREIGN KEY (`theCV`) REFERENCES `CV` (`id`);
 
