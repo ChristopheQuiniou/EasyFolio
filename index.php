@@ -11,7 +11,7 @@ $db = connect($user,$password,$database);
 
 //If connexion failed display error page
 if ( is_null($db) ){
-    require_once ("View/Error/service-unavailable.php");
+    require_once("View/Error/ServiceUnavailable.php");
     die();
 }
 
