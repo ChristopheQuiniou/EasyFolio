@@ -1,1 +1,1 @@
-<h2>Site créer par Christophe QUINIOU</h2>
+<h5 class="text-center">Site créer par Christophe QUINIOU</h5>

@@ -1,3 +1,12 @@
-<a href="#" rel="Bouton pour revenir a la page principale">EasyFolio</a>
-<a href="#">Rejoindre</a>
-<a href="#">Se connecter</a>
+
+<header class="navbar">
+    <section class="navbar-section">
+        <a href="#" class="navbar-brand mr-2">EasyFolio</a>
+    <section class="navbar-center">
+        <!-- centered logo or brand -->
+    </section>
+    <section class="navbar-section">
+        <a href="#" class="btn btn-link">Créer un compte</a>
+        <a href="#" class="btn btn-link">Se connecter</a>
+    </section>
+</header>

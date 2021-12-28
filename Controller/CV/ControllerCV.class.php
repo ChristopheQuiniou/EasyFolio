@@ -3,12 +3,12 @@
 class ControllerCV
 {
     public static function Search(Array $parameters){
-        require_once ("./../../View/CV/Search.php");
+        require_once ("View/CV/Search.php");
     }
 
     public static function Results(Array $parameters){
 
-        $toLookFor = $parameters["param1"]; // The skill that we are looking for
+        $toLookFor = ( isset($parameters["param1"]) ) ? $parameters["param1"] : null; // The skill that we are looking for
 
         if ( is_null($toLookFor) ){
             echo "no parameter";
