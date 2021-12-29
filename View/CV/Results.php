@@ -1,17 +1,25 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EasyFolio</title>
-</head>
-<body>
+<?php require_once ("View/Head.php"); ?>
+    <?php
+        if ( !is_null($toLookFor) ){
+            ?>
 
+            <div class="text-center">
+                <div class="spacer-10"></div>
+                <h2>Aucun resultat trouvé avec : <?= $toLookFor ?> </h2>
+            </div>
 
+            <?php
+        } else {
+            ?>
 
-<?php require_once("../Footer/Footer.php") ?>
+            <div class="text-center">
+                <div class="spacer-10"></div>
+                <h2>Aucun resultat trouvé avec : vide </h2>
+            </div>
 
-</body>
-</html>
+            <?php
+        }
+    ?>
+
+    <div class="spacer-60"></div>
+<?php require_once ("View/EndBody.php"); ?>

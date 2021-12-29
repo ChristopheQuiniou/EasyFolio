@@ -2,19 +2,23 @@
 
 class ControllerAccount
 {
-    public static function Connect(){
+    public static function Login($parameters){
 
-
-
-        //Give the login view
-        echo "Login form";
+        $email = GetParameter(1,true);
+        $password = GetParameter(2);
 
 
         //Check credentials
+       if ( !is_null($email) && !is_null($password) ) {
+           echo "Checking your credentials";
 
+
+       } else {
+           require_once ("View/Account/Login.php");
+       }
     }
 
-    public static function Register(){
+    public static function Register($parameters){
 
         echo "Register your account";
 

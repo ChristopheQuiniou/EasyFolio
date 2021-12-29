@@ -1,7 +1,7 @@
 
-
-let searchButton = document.getElementById("searchButton");
+let searchButton = document.getElementById("btn");
+let query = document.getElementById("query");
 
 searchButton.onclick = function() {
-    console.log("click click");
+    window.location.href = "?controller=CV&action=Results&param1=" + query.value;
 }

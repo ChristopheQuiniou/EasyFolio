@@ -2,6 +2,7 @@
 
 //echo "Hey i am the router";
 
+require_once  ("utilities.php");
 require_once ("CV/ControllerCV.class.php");
 require_once ("Account/ControllerAccount.class.php");
 
@@ -22,14 +23,32 @@ switch ($controller) {
         break;
 
     case "Project":
+        if ( method_exists("ControllerProject",$action)) {
+            ControllerProject::$action($parameters);
+        } else {
+            $errMsg = "Cette action n'est pas disponible ";
+            require_once ("View/Error/Custom.php");
+        }
 
         break;
 
     case "Education" :
+        if ( method_exists("ControllerEducation",$action)) {
+            ControllerEducation::$action($parameters);
+        } else {
+            $errMsg = "Cette action n'est pas disponible ";
+            require_once ("View/Error/Custom.php");
+        }
 
         break;
 
     case "Skill" :
+        if ( method_exists("ControllerSkill",$action)) {
+            ControllerSkill::$action($parameters);
+        } else {
+            $errMsg = "Cette action n'est pas disponible ";
+            require_once ("View/Error/Custom.php");
+        }
 
         break;
 

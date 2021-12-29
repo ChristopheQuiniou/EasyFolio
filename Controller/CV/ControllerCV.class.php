@@ -8,13 +8,15 @@ class ControllerCV
 
     public static function Results(Array $parameters){
 
-        $toLookFor = ( isset($parameters["param1"]) ) ? $parameters["param1"] : null; // The skill that we are looking for
+        $toLookFor = GetParameter(1,true);
 
-        if ( is_null($toLookFor) ){
-            echo "no parameter";
-        } else {
-            echo "Looking for CVs that match this skill " . $toLookFor;
-        }
+
+        //Get all CVs that match the query
+
+
+        require_once ("View/CV/Results.php");
+
+
 
 
     }

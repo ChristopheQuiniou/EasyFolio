@@ -2,7 +2,7 @@
 
     <div class="text-center">
         <div class="spacer-10"></div>
-        <h1>EasyFolio</h1>
+        <h1>Créer un compte</h1>
         <div class="spacer-2"></div>
 
         <div class="form-group mg-3">
@@ -12,9 +12,8 @@
 
     </div>
 
-
-
     <div class="spacer-60"></div>
 
-    <script type="text/javascript" src="JS/CV/SearchScript.js"></script>
+    <script type="text/javascript" src="JS/Account/RegisterScript.js"></script>
+
 <?php require_once ("View/EndBody.php"); ?>
