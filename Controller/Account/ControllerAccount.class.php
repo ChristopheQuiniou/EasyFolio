@@ -10,7 +10,7 @@ class ControllerAccount
 
         //Check credentials
        if ( !is_null($email) && !is_null($password) ) {
-           echo "Checking your credentials";
+           echo "Checking your credentials " . $email . " " . $password;
 
 
        } else {
@@ -21,6 +21,6 @@ class ControllerAccount
     public static function Register($parameters){
 
         echo "Register your account";
-
+        require_once ("View/Account/Register.php");
     }
 }

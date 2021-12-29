@@ -2,7 +2,6 @@
 
 class Account
 {
-
     private Integer $id;
     private String $name;
     private String $surname;
