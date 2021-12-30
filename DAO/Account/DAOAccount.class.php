@@ -28,22 +28,27 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): object
+    public function read(int $id): ?Object
     {
         try{
-            # $this->connect();
-            $query = "SELECT * FROM Account";
+            $query = "SELECT * FROM Account
+                      WHERE id=:id";
             $data = array(
-                ':id'=>$this->db->getId()
+                ":id" => $id
             );
-            $sth = $this->instance->prepare( $query );
-            $res=$sth->execute( $data );
-            $this->instance = null;
-            return $res;
-        }
-        catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            $sth = DAO::$db->prepare( $query );
+            $result = $sth->execute( $data );
+
+            $account = null;
+            if ( $sth->rowCount() == 1 ){
+                $account = new Account($result["id"],$result["name"],$result["surname"],$result["birthdate"],$result["address"],$result["phoneNumber"],$result["emailAddress"],$result["password"],$result["profilPicture"]);
+            }
+
+            return $account;
+        } catch (PDOException $e){
+            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
+            require_once ("View/Error/Custom.php");
+            return null;
         }
     }
 
