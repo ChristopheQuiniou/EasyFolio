@@ -3,15 +3,15 @@
 class CV
 {
 
-    private Integer $id;
-    private String $title;
-    private String $description;
-    private Integer $theAccount;
+    private int $id;
+    private string $title;
+    private string $description;
+    private int $theAccount;
 
     /**
      * @param int $id
-     * @param String $title
-     * @param String $description
+     * @param string $title
+     * @param string $description
      * @param int $theAccount
      */
     public function __construct(int $id, string $title, string $description, int $theAccount)
@@ -40,7 +40,7 @@ class CV
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getTitle(): string
     {
@@ -48,7 +48,7 @@ class CV
     }
 
     /**
-     * @param String $title
+     * @param string $title
      */
     public function setTitle(string $title): void
     {
@@ -56,7 +56,7 @@ class CV
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getDescription(): string
     {
@@ -64,7 +64,7 @@ class CV
     }
 
     /**
-     * @param String $description
+     * @param string $description
      */
     public function setDescription(string $description): void
     {

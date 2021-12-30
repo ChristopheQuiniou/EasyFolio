@@ -16,11 +16,16 @@
 
                     <label for="name" class="form-label">Nom</label>
                     <input type="text" id="name" class="form-input" placeholder="Nom" required>
-                    <p class="form-input-hint invisible" id="hint">Cette adresse mail est invalide.</p>
+                    <p class="form-input-hint invisible" id="hintName">Ce nom est invalide.</p>
 
                     <label for="surname" class="form-label">Prénom</label>
                     <input type="text" id="surname" class="form-input" placeholder="Prénom" required>
-                    <p class="form-input-hint invisible" id="hintEmail">Cette adresse mail est invalide.</p>
+                    <p class="form-input-hint invisible" id="hintSurname">Ce prénom est invalide.</p>
+
+                    <label for="birthdate" class="form-label">Date de naissance</label>
+                    <input type="date" id="birthdate" class="form-input" placeholder="10/10/2022" required>
+                    <p class="form-input-hint invisible" id="hintBirthdate">Cette date de naissance est invalide.</p>
+
 
                     <label class="form-label" for="email">Email</label>
                     <input class="form-input" type="email" id="email" placeholder="Adresse mail" required>

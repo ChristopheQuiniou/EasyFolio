@@ -2,7 +2,7 @@
 
 class DAOAccount extends DAO implements IDAO
 {
-    public function create(object $obj): Boolean
+    public function create(object $obj): bool
     {
         try{
             # $this->connect();
@@ -28,7 +28,7 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): ?Object
+    public function read(int $id): ?object
     {
         try{
             $query = "SELECT * FROM Account
@@ -52,7 +52,7 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function update(object $obj): Boolean
+    public function update(object $obj): bool
     {
         try{
             #$this->connect();
@@ -78,7 +78,7 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function delete(object $obj): Boolean
+    public function delete(object $obj): bool
     {
         try{
             # $this->connect();

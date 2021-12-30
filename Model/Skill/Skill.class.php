@@ -2,12 +2,12 @@
 
 class Skill
 {
-    private Integer $id;
-    private String $name;
+    private int $id;
+    private string $name;
 
     /**
      * @param int $id
-     * @param String $name
+     * @param string $name
      */
     public function __construct(int $id, string $name)
     {
@@ -32,7 +32,7 @@ class Skill
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getName(): string
     {
@@ -40,7 +40,7 @@ class Skill
     }
 
     /**
-     * @param String $name
+     * @param string $name
      */
     public function setName(string $name): void
     {

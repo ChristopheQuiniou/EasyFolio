@@ -3,17 +3,17 @@
 class Education
 {
 
-    private Integer $id;
-    private String $title;
-    private String $start;
-    private String $end;
-    private Integer $theCV;
+    private int $id;
+    private string $title;
+    private string $start;
+    private string $end;
+    private int $theCV;
 
     /**
      * @param int $id
-     * @param String $title
-     * @param String $start
-     * @param String $end
+     * @param string $title
+     * @param string $start
+     * @param string $end
      * @param int $theCV
      */
     public function __construct(int $id, string $title, string $start, string $end, int $theCV)
@@ -43,7 +43,7 @@ class Education
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getTitle(): string
     {
@@ -51,7 +51,7 @@ class Education
     }
 
     /**
-     * @param String $title
+     * @param string $title
      */
     public function setTitle(string $title): void
     {
@@ -59,7 +59,7 @@ class Education
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getStart(): string
     {
@@ -67,7 +67,7 @@ class Education
     }
 
     /**
-     * @param String $start
+     * @param string $start
      */
     public function setStart(string $start): void
     {
@@ -75,7 +75,7 @@ class Education
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getEnd(): string
     {
@@ -83,7 +83,7 @@ class Education
     }
 
     /**
-     * @param String $end
+     * @param string $end
      */
     public function setEnd(string $end): void
     {

@@ -3,8 +3,8 @@
 class AssociationSkillProject
 {
 
-    private Integer $idSkill;
-    private Integer $idProject;
+    private int $idSkill;
+    private int $idProject;
 
     /**
      * @param int $idSkill

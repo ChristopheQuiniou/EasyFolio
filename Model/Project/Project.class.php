@@ -3,27 +3,27 @@
 class Project
 {
 
-    private Integer $id;
-    private String $title;
-    private String $startDate;
-    private String $endDate;
-    private String $place;
-    private String $summary;
-    private String $description;
-    private String $git;
-    private String $kanban;
-    private Integer $theCV;
+    private int $id;
+    private string $title;
+    private string $startDate;
+    private string $endDate;
+    private string $place;
+    private string $summary;
+    private string $description;
+    private string $git;
+    private string $kanban;
+    private int $theCV;
 
     /**
      * @param int $id
-     * @param String $title
-     * @param String $startDate
-     * @param String $endDate
-     * @param String $place
-     * @param String $summary
-     * @param String $description
-     * @param String $git
-     * @param String $kanban
+     * @param string $title
+     * @param string $startDate
+     * @param string $endDate
+     * @param string $place
+     * @param string $summary
+     * @param string $description
+     * @param string $git
+     * @param string $kanban
      * @param int $theCV
      */
     public function __construct(int $id, string $title, string $startDate, string $endDate, string $place, string $summary, string $description, string $git, string $kanban, int $theCV)
@@ -57,7 +57,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getTitle(): string
     {
@@ -65,7 +65,7 @@ class Project
     }
 
     /**
-     * @param String $title
+     * @param string $title
      */
     public function setTitle(string $title): void
     {
@@ -73,7 +73,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getStartDate(): string
     {
@@ -81,7 +81,7 @@ class Project
     }
 
     /**
-     * @param String $startDate
+     * @param string $startDate
      */
     public function setStartDate(string $startDate): void
     {
@@ -89,7 +89,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getEndDate(): string
     {
@@ -97,7 +97,7 @@ class Project
     }
 
     /**
-     * @param String $endDate
+     * @param string $endDate
      */
     public function setEndDate(string $endDate): void
     {
@@ -105,7 +105,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getPlace(): string
     {
@@ -113,7 +113,7 @@ class Project
     }
 
     /**
-     * @param String $place
+     * @param string $place
      */
     public function setPlace(string $place): void
     {
@@ -121,7 +121,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getSummary(): string
     {
@@ -129,7 +129,7 @@ class Project
     }
 
     /**
-     * @param String $summary
+     * @param string $summary
      */
     public function setSummary(string $summary): void
     {
@@ -137,7 +137,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getDescription(): string
     {
@@ -145,7 +145,7 @@ class Project
     }
 
     /**
-     * @param String $description
+     * @param string $description
      */
     public function setDescription(string $description): void
     {
@@ -153,7 +153,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getGit(): string
     {
@@ -161,7 +161,7 @@ class Project
     }
 
     /**
-     * @param String $git
+     * @param string $git
      */
     public function setGit(string $git): void
     {
@@ -169,7 +169,7 @@ class Project
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getKanban(): string
     {
@@ -177,7 +177,7 @@ class Project
     }
 
     /**
-     * @param String $kanban
+     * @param string $kanban
      */
     public function setKanban(string $kanban): void
     {

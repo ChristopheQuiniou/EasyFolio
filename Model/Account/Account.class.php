@@ -2,26 +2,26 @@
 
 class Account
 {
-    private Integer $id;
-    private String $name;
-    private String $surname;
-    private String $birthdate;
-    private String $address;
-    private String $phoneNumber;
-    private String $emailAddress;
-    private String $password;
-    private String $profilPicture;
+    private int $id;
+    private string $name;
+    private string $surname;
+    private string $birthdate;
+    private string $address;
+    private string $phoneNumber;
+    private string $emailAddress;
+    private string $password;
+    private string $profilPicture;
 
     /**
      * @param int $id
-     * @param String $name
-     * @param String $surname
-     * @param String $birthdate
-     * @param String $address
-     * @param String $phoneNumber
-     * @param String $emailAddress
-     * @param String $password
-     * @param String $profilPicture
+     * @param string $name
+     * @param string $surname
+     * @param string $birthdate
+     * @param string $address
+     * @param string $phoneNumber
+     * @param string $emailAddress
+     * @param string $password
+     * @param string $profilPicture
      */
     public function __construct(int $id, string $name, string $surname, string $birthdate, string $address, string $phoneNumber, string $emailAddress, string $password, string $profilPicture)
     {
@@ -54,7 +54,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getName(): string
     {
@@ -62,7 +62,7 @@ class Account
     }
 
     /**
-     * @param String $name
+     * @param string $name
      */
     public function setName(string $name): void
     {
@@ -70,7 +70,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getSurname(): string
     {
@@ -78,7 +78,7 @@ class Account
     }
 
     /**
-     * @param String $surname
+     * @param string $surname
      */
     public function setSurname(string $surname): void
     {
@@ -86,7 +86,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getBirthdate(): string
     {
@@ -94,7 +94,7 @@ class Account
     }
 
     /**
-     * @param String $birthdate
+     * @param string $birthdate
      */
     public function setBirthdate(string $birthdate): void
     {
@@ -102,7 +102,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getAddress(): string
     {
@@ -110,7 +110,7 @@ class Account
     }
 
     /**
-     * @param String $address
+     * @param string $address
      */
     public function setAddress(string $address): void
     {
@@ -118,7 +118,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getPhoneNumber(): string
     {
@@ -126,7 +126,7 @@ class Account
     }
 
     /**
-     * @param String $phoneNumber
+     * @param string $phoneNumber
      */
     public function setPhoneNumber(string $phoneNumber): void
     {
@@ -134,7 +134,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getEmailAddress(): string
     {
@@ -142,7 +142,7 @@ class Account
     }
 
     /**
-     * @param String $emailAddress
+     * @param string $emailAddress
      */
     public function setEmailAddress(string $emailAddress): void
     {
@@ -150,7 +150,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getPassword(): string
     {
@@ -158,7 +158,7 @@ class Account
     }
 
     /**
-     * @param String $password
+     * @param string $password
      */
     public function setPassword(string $password): void
     {
@@ -166,7 +166,7 @@ class Account
     }
 
     /**
-     * @return String
+     * @return string
      */
     public function getProfilPicture(): string
     {
@@ -174,7 +174,7 @@ class Account
     }
 
     /**
-     * @param String $profilPicture
+     * @param string $profilPicture
      */
     public function setProfilPicture(string $profilPicture): void
     {
