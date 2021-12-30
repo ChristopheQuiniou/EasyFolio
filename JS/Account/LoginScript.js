@@ -1,3 +1,4 @@
+
 let button = document.getElementById("btn");
 let emailInput = document.getElementById("email");
 let hintEmail = document.getElementById("hintEmail");
@@ -12,20 +13,16 @@ button.onclick = () => {
 
     if ( !isValidEmail(email) ){
         //Display error
-        hintEmail.classList.remove("invisible");
-        emailInput.classList.add("is-error");
+        showErrorMessage(hintEmail,emailInput);
     } else {
-        hintEmail.classList.add("invisible");
-        emailInput.classList.remove("is-error");
+        hideErrorMessage(hintEmail,emailInput);
     }
 
 
     if ( !isValidPassword(password) ){
-        hintPassword.classList.remove("invisible");
-        passwordInput.classList.add("is-error");
+        showErrorMessage(hintPassword,passwordInput);
     } else {
-        hintPassword.classList.add("invisible");
-        passwordInput.classList.remove("is-error");
+        hideErrorMessage(hintPassword,passwordInput);
     }
 
 
@@ -43,30 +40,6 @@ button.onclick = () => {
 
     }
 
-
-}
-
-function isValidEmail( email ){
-
-    if ( email == null || email == "" )
-        return false;
-
-    var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-    if(!reg.test(email))
-        return false;
-
-    return true;
-}
-
-function isValidPassword( password ){
-
-    if ( password == null || password == "" )
-        return false;
-
-    if ( password.length < 9 )
-        return false;
-
-    return true;
 
 }
 

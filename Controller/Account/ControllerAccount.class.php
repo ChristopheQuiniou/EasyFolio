@@ -20,7 +20,6 @@ class ControllerAccount
 
     public static function Register($parameters){
 
-        echo "Register your account";
         require_once ("View/Account/Register.php");
     }
 }

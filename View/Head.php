@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="CSS/spectre-exp.min.css">
     <link rel="stylesheet" href="CSS/spectre-icons.min.css">
 
+    <script src="JS/Utilities.js"></script>
+
     <title>EasyFolio</title>
 </head>
 <body>
