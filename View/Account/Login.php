@@ -23,7 +23,7 @@
                     <input class="form-input" type="password" id="password" placeholder="Mot de passe" required>
                     <p class="form-input-hint invisible" id="hintPassword">Ce mot de passe est invalide.</p>
                     <div class="spacer-2"></div>
-                    <button class=" btn btn-primary input-group-btn stick-right" id="btn">Se connecter</button>
+                    <button class=" btn btn-primary input-group-btn float-right" id="btn">Se connecter</button>
                 </div>
             </div>
             <div class="col-4">

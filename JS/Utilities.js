@@ -30,7 +30,7 @@ const isValidPhoneNumber = ( phoneNumber ) => {
 
 const isValidEmail = ( email ) => {
 
-    if ( email == null || email == "" )
+    if ( email.length < 6 )
         return false;
 
     var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -69,4 +69,13 @@ const showErrorMessage = (hint,input) => {
 const hideErrorMessage = (hint,input) => {
     hint.classList.add("invisible");
     input.classList.remove("is-error");
+}
+
+
+const showErrorToast = (toast) => {
+    toast.classList.remove("invisible");
+}
+
+const hideErrorToast = (toast) => {
+    toast.classList.add("invisible");
 }

@@ -1,6 +1,9 @@
 
 let button = document.getElementById("btn");
 
+let errorToast = document.getElementById("errorToast");
+let errorToastButton = document.getElementById("errorToastButton");
+
 let nameInput = document.getElementById("name");
 let hintName = document.getElementById("hintName");
 
@@ -24,6 +27,11 @@ let hintPassword = document.getElementById("hintPassword");
 
 let password2Input = document.getElementById("password2");
 let hintPassword2 = document.getElementById("hintPassword2");
+
+
+errorToastButton.onclick = () => {
+    hideErrorToast(errorToast);
+}
 
 button.onclick = () => {
 
@@ -100,7 +108,23 @@ button.onclick = () => {
          isValidPassword(password) &&
          passwordsMatch(password,password2) ){
 
-        console.log("GO send request");
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("GET",`?controller=Account&action=Register&param1=${name}&param2=${surname}&param3=${birthdate}&param4=${address}&param5=${phoneNumber}&param6=${email}&param7=${password}`, true);
+        xhttp.onreadystatechange = () => {
+
+            if ( xhttp.readyState == 4 && xhttp.status == 200 ){
+                //console.log(xhttp.responseText);
+                let response = xhttp.responseText;
+                if (response == "GOOD"){
+                    window.location.href = "?controller=Account&action=Account"
+                } else {
+                    showErrorToast(errorToast);
+                }
+
+            }
+        }
+        xhttp.send();
+
 
     }
 

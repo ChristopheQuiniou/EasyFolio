@@ -14,6 +14,12 @@
 
                 <div class="form-group">
 
+                    <div class="toast toast-error invisible" id="errorToast">
+                        <button class="btn btn-clear float-right" id="errorToastButton"></button>
+                        Une erreur c'est produite, veuillez verifier vos champs.
+                    </div>
+                    <div class="spacer-1"></div>
+
                     <label for="name" class="form-label">Nom</label>
                     <input type="text" id="name" class="form-input" placeholder="Nom" min="3" required>
                     <p class="form-input-hint invisible" id="hintName">Ce nom est invalide.</p>
@@ -53,8 +59,7 @@
 
 
 
-
-                    <button class=" btn btn-primary input-group-btn stick-right" id="btn">Valider</button>
+                    <button class=" btn btn-primary input-group-btn float-right" id="btn">Valider</button>
                 </div>
 
             </div>

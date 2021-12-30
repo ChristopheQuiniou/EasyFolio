@@ -2,6 +2,11 @@
 
 class ControllerAccount
 {
+
+    public static function Account($parameters){
+        echo "Your account";
+    }
+
     public static function Login($parameters){
 
         $email = GetParameter(1,true);
@@ -20,6 +25,35 @@ class ControllerAccount
 
     public static function Register($parameters){
 
-        require_once ("View/Account/Register.php");
+        $name = GetParameter(1,true);
+        $surname = GetParameter(2,true);
+        $birthdate = GetParameter(3,true);
+        $address = GetParameter(4,true);
+        $phoneNumber = GetParameter(5,true);
+        $email = GetParameter(6,true);
+        $password = GetParameter(7);
+
+        if ( !is_null($name) && !is_null($surname) && !is_null($birthdate) && !is_null($address) && !is_null($phoneNumber) && !is_null($email) && !is_null($password) ){
+
+            //echo "name : $name  surname : $surname  birthdate : $birthdate   address : $address   phonenumber : $phoneNumber  email $email  password $password";
+
+            if (Account::isValidName($name) &&
+                Account::isValidSurname($surname) &&
+                Account::isValidBirthdate($birthdate) &&
+                Account::isValidAddress($address) &&
+                Account::isValidPhoneNumber($phoneNumber) &&
+                Account::isValidEmail($email) &&
+                Account::isValidPassword($password)
+            ){
+                //Create session
+
+                echo "GOOD";
+            }  else {
+                echo "ERROR";
+            }
+
+        } else {
+            require_once ("View/Account/Register.php");
+        }
     }
 }

@@ -182,6 +182,57 @@ class Account
     }
 
 
+    public static function isValidName(string $name) : bool {
+
+        if ( strlen($name) <= 2 )
+            return false;
+        return true;
+    }
+
+    public static function isValidSurname(string $surname) : bool {
+        return self::isValidName($surname);
+    }
+
+    public static function isValidBirthdate(string $birthdate) : bool {
+        if ( strlen($birthdate) != 10 )
+            return false;
+        return true;
+    }
+
+    public static function isValidAddress(string $address) : bool {
+        if ( strlen($address) <= 5 )
+            return false;
+        return true;
+    }
+
+    public static function isValidPhoneNumber(string $phoneNumber) : bool {
+
+        if ( strlen($phoneNumber) < 10 )
+            return false;
+        return true;
+
+    }
+
+    public static function isValidEmail(string $email) : bool {
+
+        if ( strlen($email) < 6 )
+            return false;
+
+        $pattern = "/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i";
+        if ( preg_match($pattern,$email) == 0 )
+            return false;
+
+        return true;
+    }
+
+    public static function isValidPassword(string $password) : bool {
+
+        if ( strlen($password) < 9 )
+            return false;
+        return true;
+    }
+
+
 
 
 
