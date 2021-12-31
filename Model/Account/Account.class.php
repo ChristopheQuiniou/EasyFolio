@@ -12,6 +12,9 @@ class Account
     private string $password;
     private string $profilPicture;
 
+    public static string $DefaultPicture = "https://i.imgur.com/QZoTtT3.jpeg";
+    public static int $DefaultId = -1;
+
     /**
      * @param int $id
      * @param string $name

@@ -3,11 +3,11 @@
 class DAOProject extends DAO implements IDAO
 {
 
-    public function create(object $obj): bool
+    public static function create(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO project VALUES(:id,:title,:startDate,:endDate,:place,:summary,:description,:git,:kanban,:theCV)";
+            $query = "INSERT INTO Project VALUES(:id,:title,:startDate,:endDate,:place,:summary,:description,:git,:kanban,:theCV)";
             $data = array(
                 'id'=>$obj->getId(),
                 'title'=>$obj->getTitle(),
@@ -30,10 +30,10 @@ class DAOProject extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): ?object
+    public static function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM project
+            $query = "SELECT * FROM Project
                       WHERE id=:id";
             $data = array(
                 ":id" => $id
@@ -53,11 +53,11 @@ class DAOProject extends DAO implements IDAO
             return null;
         }    }
 
-    public function update(object $obj): bool
+    public static function update(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "UPDATE project SET title=:title, startDate=:startDate, endDate=:endDate, place=:place, summary=:summary, description=:description, git=:git, kanban=:kanban, theCV=:theCV)";
+            $query = "UPDATE Project SET title=:title, startDate=:startDate, endDate=:endDate, place=:place, summary=:summary, description=:description, git=:git, kanban=:kanban, theCV=:theCV)";
             $data = array(
                 'id'=>$obj->getId(),
                 'title'=>$obj->getTitle(),
@@ -79,11 +79,11 @@ class DAOProject extends DAO implements IDAO
             die();
         }       }
 
-    public function delete(object $obj): bool
+    public static function delete(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM project WHERE id=:id ";
+            $query = "DELETE FROM Project WHERE id=:id ";
             $data = array(
                 ':id'=>$obj->getId()
             );

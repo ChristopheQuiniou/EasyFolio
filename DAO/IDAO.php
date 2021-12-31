@@ -3,12 +3,12 @@
 interface IDAO
 {
 
-    public function create( object $obj ) : bool;
+    public static function create( object $obj ) : bool;
 
-    public function read( int $id ) : ?object ;
+    public static function read( int $id ) : ?object ;
 
-    public function update( object $obj ) : bool;
+    public static function update( object $obj ) : bool;
 
-    public function delete( object $obj ) : bool;
+    public static function delete( object $obj ) : bool;
 
 }

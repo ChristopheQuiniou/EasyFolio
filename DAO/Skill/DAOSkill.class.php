@@ -4,11 +4,11 @@ class DAOSkill extends DAO implements IDAO
 {
 
 
-    public function create(object $obj): bool
+    public static function create(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO skill VALUES(:id,:name)";
+            $query = "INSERT INTO Skill VALUES(:id,:name)";
             $data = array(
                 'id'=>$obj->getId(),
                 'name'=>$obj->getName(),
@@ -23,10 +23,10 @@ class DAOSkill extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): ?object
+    public static function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM skill
+            $query = "SELECT * FROM Skill
                       WHERE id=:id";
             $data = array(
                 ":id" => $id
@@ -46,11 +46,11 @@ class DAOSkill extends DAO implements IDAO
         }
     }
 
-    public function update(object $obj): bool
+    public static function update(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "UPDATE skill SET name=:name WHERE id=:id";
+            $query = "UPDATE Skill SET name=:name WHERE id=:id";
             $data = array(
                 'id'=>$obj->getId(),
                 'name'=>$obj->getName(),
@@ -65,11 +65,11 @@ class DAOSkill extends DAO implements IDAO
         }
     }
 
-    public function delete(object $obj): bool
+    public static function delete(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM skill WHERE id=:id ";
+            $query = "DELETE FROM Skill WHERE id=:id ";
             $data = array(
                 ':id'=>$obj->getId()
             );

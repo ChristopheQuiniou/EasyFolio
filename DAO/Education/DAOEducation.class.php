@@ -3,11 +3,11 @@
 class DAOEducation extends DAO implements IDAO
 {
 
-    public function create(object $obj): bool
+    public static function create(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO education VALUES(:id,:title,:start,:end,:theCV)";
+            $query = "INSERT INTO Education VALUES(:id,:title,:start,:end,:theCV)";
             $data = array(
                 'id'=>$obj->getId(),
                 'title'=>$obj->getTitle(),
@@ -25,10 +25,10 @@ class DAOEducation extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): ?object
+    public static function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM education
+            $query = "SELECT * FROM Education
                       WHERE id=:id";
             $data = array(
                 ":id" => $id
@@ -49,11 +49,11 @@ class DAOEducation extends DAO implements IDAO
         }
     }
 
-    public function update(object $obj): bool
+    public static function update(object $obj): bool
     {
         try{
             #$this->connect();
-            $query = " UPDATE education SET title=:title, start=:start, end=:end, theCV=:theCV WHERE id=:id ";
+            $query = " UPDATE Education SET title=:title, start=:start, end=:end, theCV=:theCV WHERE id=:id ";
             $data = array(
                 'id'=>$obj->getId(),
                 'title'=>$obj->getTitle(),
@@ -70,11 +70,11 @@ class DAOEducation extends DAO implements IDAO
             die();
         }    }
 
-    public function delete(object $obj): bool
+    public static function delete(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM education WHERE id=:id ";
+            $query = "DELETE FROM Education WHERE id=:id ";
             $data = array(
                 ':id'=>$obj->getId()
             );

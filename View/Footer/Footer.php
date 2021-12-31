@@ -1,1 +1,1 @@
-<h5 class="text-center">Site web créé par Christophe QUINIOU</h5>
+<h5 class="text-center">Site web créé par Christophe QUINIOU et Elisée ATTIOUMOU</h5>

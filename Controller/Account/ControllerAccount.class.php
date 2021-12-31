@@ -56,6 +56,10 @@ class ControllerAccount
                 Account::isValidEmail($email) &&
                 Account::isValidPassword($password)
             ){
+                //Insert user in database
+                $account = new Account(Account::$DefaultId,$name,$surname,$birthdate,$address,$phoneNumber,$email,$password,Account::$DefaultPicture);
+                DAOAccount::create($account);
+
                 //Create session
                 setConnected();
                 echo "GOOD";

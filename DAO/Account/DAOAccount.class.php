@@ -2,19 +2,19 @@
 
 class DAOAccount extends DAO implements IDAO
 {
-    public function create(object $obj): bool
+    public static function create(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO account VALUES(:id,:name,:surname,:birthdate,:adress,:phoneNumber,:emailAdress,:password,:profilPicture)";
+            $query = "INSERT INTO Account VALUES(:id,:name,:surname,:birthdate,:address,:phoneNumber,:emailAddress,:password,:profilPicture)";
             $data = array(
                 'id'=>$obj->getId(),
                 'name'=>$obj->getName(),
                 'surname'=>$obj->getSurname(),
-                'birthdate'=>$obj->getBithdate(),
-                'adress'=>$obj->getAdress(),
+                'birthdate'=>$obj->getBirthdate(),
+                'address'=>$obj->getAddress(),
                 'phoneNumber'=>$obj->getPhoneNumber(),
-                'emailAdress'=>$obj->getEmailAdress(),
+                'emailAddress'=>$obj->getEmailAddress(),
                 'password'=>$obj->getPassword(),
                 'profilPicture'=>$obj->getprofilPicture()
             );
@@ -28,10 +28,10 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function read(int $id): ?object
+    public static function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM account
+            $query = "SELECT * FROM Account
                       WHERE id=:id";
             $data = array(
                 ":id" => $id
@@ -52,11 +52,11 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function update(object $obj): bool
+    public static function update(object $obj): bool
     {
         try{
             #$this->connect();
-            $query = " UPDATE account SET name=:name, surname=:surname, birthdate=:birthdate, adress=:adress,phoneNumber=:phoneNumber, emailAdress=:emailAdress, password=:password,profilPicture=:profilPicture WHERE id=:id ";
+            $query = " UPDATE Account SET name=:name, surname=:surname, birthdate=:birthdate, adress=:adress,phoneNumber=:phoneNumber, emailAdress=:emailAdress, password=:password,profilPicture=:profilPicture WHERE id=:id ";
             $data = array(
                 'id'=>$obj->getId(),
                 'name'=>$obj->getName(),
@@ -78,11 +78,11 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    public function delete(object $obj): bool
+    public static function delete(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM acccount WHERE id=:id ";
+            $query = "DELETE FROM Acccount WHERE id=:id ";
             $data = array(
                 ':id'=>$obj->getId()
             );

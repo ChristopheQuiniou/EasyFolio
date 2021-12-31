@@ -3,11 +3,11 @@
 class DAOAssociationSkillProject extends DAO implements IDAO
 {
 
-    public function create(object $obj): bool
+    public static function create(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO associationSkillProject VALUES(:idSkill,:idProject)";
+            $query = "INSERT INTO AssociationSkillProject VALUES(:idSkill,:idProject)";
             $data = array(
                 'id'=>$obj->getIdSkill(),
                 'name'=>$obj->getIdProject(),
@@ -21,10 +21,10 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             die();
         }    }
 
-    public function read(int $id): ?object
+    public static function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM associationSkillProject
+            $query = "SELECT * FROM AssociationSkillProject
                       WHERE idSkill=:idSkill" /* AND idProject=:idProject */;
             $data = array(
                 ":idSkill" => $id
@@ -43,11 +43,12 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             return null;
         }    }
 
-    public function update(object $obj): bool
+    // TODO Fix the query
+    public static function update(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "UPDATE associationSkillProject SET idProject=:idProject WHERE id=:id";
+            $query = "UPDATE AssociationSkillProject SET idProject=:idProject WHERE idSkill=:id";
             $data = array(
                 'id'=>$obj->getIdSkill(),
                 'name'=>$obj->getIdProject(),
@@ -62,11 +63,11 @@ class DAOAssociationSkillProject extends DAO implements IDAO
         }
     }
 
-    public function delete(object $obj): bool
+    public static function delete(object $obj): bool
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM associationSkillProject WHERE idSkill=:idSkill ";
+            $query = "DELETE FROM AssociationSkillProject WHERE idSkill=:idSkill ";
             $data = array(
                 ':idSkill'=>$obj->getIdSkill()
             );
