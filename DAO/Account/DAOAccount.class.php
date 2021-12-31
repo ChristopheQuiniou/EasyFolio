@@ -8,15 +8,15 @@ class DAOAccount extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO account VALUES(:id,:name,:surname,:birthdate,:adress,:phoneNumber,:emailAdress,:password,:profilPicture)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'name'=>$this->db->getName(),
-                'surname'=>$this->db->getSurname(),
-                'birthdate'=>$this->db->getBithdate(),
-                'adress'=>$this->db->getAdress(),
-                'phoneNumber'=>$this->db->getPhoneNumber(),
-                'emailAdress'=>$this->db->getEmailAdress(),
-                'password'=>$this->db->getPassword(),
-                'profilPicture'=>$this->db->getprofilPicture()
+                'id'=>$obj->getId(),
+                'name'=>$obj->getName(),
+                'surname'=>$obj->getSurname(),
+                'birthdate'=>$obj->getBithdate(),
+                'adress'=>$obj->getAdress(),
+                'phoneNumber'=>$obj->getPhoneNumber(),
+                'emailAdress'=>$obj->getEmailAdress(),
+                'password'=>$obj->getPassword(),
+                'profilPicture'=>$obj->getprofilPicture()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -58,15 +58,15 @@ class DAOAccount extends DAO implements IDAO
             #$this->connect();
             $query = " UPDATE account SET name=:name, surname=:surname, birthdate=:birthdate, adress=:adress,phoneNumber=:phoneNumber, emailAdress=:emailAdress, password=:password,profilPicture=:profilPicture WHERE id=:id ";
             $data = array(
-                'id'=>$this->db->getId(),
-                'name'=>$this->db->getName(),
-                'surname'=>$this->db->getSurname(),
-                'birthdate'=>$this->db->getBithdate(),
-                'adress'=>$this->db->getAdress(),
-                'phoneNumber'=>$this->db->getPhoneNumber(),
-                'emailAdress'=>$this->db->getEmailAdress(),
-                'password'=>$this->db->getPassword(),
-                'profilPicture'=>$this->db->getprofilPicture()
+                'id'=>$obj->getId(),
+                'name'=>$obj->getName(),
+                'surname'=>$obj->getSurname(),
+                'birthdate'=>$obj->getBithdate(),
+                'adress'=>$obj->getAdress(),
+                'phoneNumber'=>$obj->getPhoneNumber(),
+                'emailAdress'=>$obj->getEmailAdress(),
+                'password'=>$obj->getPassword(),
+                'profilPicture'=>$obj->getprofilPicture()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -84,7 +84,7 @@ class DAOAccount extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM acccount WHERE id=:id ";
             $data = array(
-                ':id'=>$this->db->getId()
+                ':id'=>$obj->getId()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );

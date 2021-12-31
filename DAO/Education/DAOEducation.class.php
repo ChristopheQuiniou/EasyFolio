@@ -9,11 +9,11 @@ class DAOEducation extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO education VALUES(:id,:title,:start,:end,:theCV)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'start'=>$this->db->getStart(),
-                'end'=>$this->db->getEnd(),
-                'theCV'=>$this->db->getTheCV(),
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'start'=>$obj->getStart(),
+                'end'=>$obj->getEnd(),
+                'theCV'=>$obj->getTheCV(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -55,11 +55,11 @@ class DAOEducation extends DAO implements IDAO
             #$this->connect();
             $query = " UPDATE education SET title=:title, start=:start, end=:end, theCV=:theCV WHERE id=:id ";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'start'=>$this->db->getStart(),
-                'end'=>$this->db->getEnd(),
-                'theCV'=>$this->db->getTheCV(),
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'start'=>$obj->getStart(),
+                'end'=>$obj->getEnd(),
+                'theCV'=>$obj->getTheCV(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -76,7 +76,7 @@ class DAOEducation extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM education WHERE id=:id ";
             $data = array(
-                ':id'=>$this->db->getId()
+                ':id'=>$obj->getId()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );

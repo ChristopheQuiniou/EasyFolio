@@ -9,10 +9,10 @@ class DAOCV extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO cv VALUES(:id,:title,:description,:theAccount)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'description'=>$this->db->getDescription(),
-                'theAccount'=>$this->db->getTheAccount(),
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'description'=>$obj->getDescription(),
+                'theAccount'=>$obj->getTheAccount(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -53,10 +53,10 @@ class DAOCV extends DAO implements IDAO
             #$this->connect();
             $query = " UPDATE cv SET title=:title, description=:description, theAccount=:theAccount WHERE id=:id ";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'description'=>$this->db->getDescription(),
-                'theAccount'=>$this->db->getTheAccount(),
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'description'=>$obj->getDescription(),
+                'theAccount'=>$obj->getTheAccount(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -73,7 +73,7 @@ class DAOCV extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM cv WHERE id=:id ";
             $data = array(
-                ':id'=>$this->db->getId()
+                ':id'=>$obj->getId()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );

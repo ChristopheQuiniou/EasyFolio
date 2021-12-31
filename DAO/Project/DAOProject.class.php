@@ -9,16 +9,16 @@ class DAOProject extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO project VALUES(:id,:title,:startDate,:endDate,:place,:summary,:description,:git,:kanban,:theCV)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'startDate'=>$this->db->getStartDate(),
-                'endDate'=>$this->db->getEndDate(),
-                'place'=>$this->db->getPlace(),
-                'summary'=>$this->db->getSummary(),
-                'description'=>$this->db->getDescription(),
-                'git'=>$this->db->getGit(),
-                'kanban'=>$this->db->getKanban(),
-                'theCV'=>$this->db->getTheCV()
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'startDate'=>$obj->getStartDate(),
+                'endDate'=>$obj->getEndDate(),
+                'place'=>$obj->getPlace(),
+                'summary'=>$obj->getSummary(),
+                'description'=>$obj->getDescription(),
+                'git'=>$obj->getGit(),
+                'kanban'=>$obj->getKanban(),
+                'theCV'=>$obj->getTheCV()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -59,16 +59,16 @@ class DAOProject extends DAO implements IDAO
             # $this->connect();
             $query = "UPDATE project SET title=:title, startDate=:startDate, endDate=:endDate, place=:place, summary=:summary, description=:description, git=:git, kanban=:kanban, theCV=:theCV)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'title'=>$this->db->getTitle(),
-                'startDate'=>$this->db->getStartDate(),
-                'endDate'=>$this->db->getEndDate(),
-                'place'=>$this->db->getPlace(),
-                'summary'=>$this->db->getSummary(),
-                'description'=>$this->db->getDescription(),
-                'git'=>$this->db->getGit(),
-                'kanban'=>$this->db->getKanban(),
-                'theCV'=>$this->db->getTheCV()
+                'id'=>$obj->getId(),
+                'title'=>$obj->getTitle(),
+                'startDate'=>$obj->getStartDate(),
+                'endDate'=>$obj->getEndDate(),
+                'place'=>$obj->getPlace(),
+                'summary'=>$obj->getSummary(),
+                'description'=>$obj->getDescription(),
+                'git'=>$obj->getGit(),
+                'kanban'=>$obj->getKanban(),
+                'theCV'=>$obj->getTheCV()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -85,7 +85,7 @@ class DAOProject extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM project WHERE id=:id ";
             $data = array(
-                ':id'=>$this->db->getId()
+                ':id'=>$obj->getId()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );

@@ -10,8 +10,8 @@ class DAOSkill extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO skill VALUES(:id,:name)";
             $data = array(
-                'id'=>$this->db->getId(),
-                'name'=>$this->db->getName(),
+                'id'=>$obj->getId(),
+                'name'=>$obj->getName(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -36,7 +36,7 @@ class DAOSkill extends DAO implements IDAO
 
             $skill = null;
             if ( $sth->rowCount() == 1 ){
-                $skill = new cv($result["id"],$result["name"]);
+                $skill = new skill($result["id"],$result["name"]);
             }
             return $skill;
         } catch (PDOException $e){
@@ -52,8 +52,8 @@ class DAOSkill extends DAO implements IDAO
             # $this->connect();
             $query = "UPDATE skill SET name=:name WHERE id=:id";
             $data = array(
-                'id'=>$this->db->getId(),
-                'name'=>$this->db->getName(),
+                'id'=>$obj->getId(),
+                'name'=>$obj->getName(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -71,7 +71,7 @@ class DAOSkill extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM skill WHERE id=:id ";
             $data = array(
-                ':id'=>$this->db->getId()
+                ':id'=>$obj->getId()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );

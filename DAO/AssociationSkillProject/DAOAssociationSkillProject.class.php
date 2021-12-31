@@ -9,8 +9,8 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             # $this->connect();
             $query = "INSERT INTO associationSkillProject VALUES(:idSkill,:idProject)";
             $data = array(
-                'id'=>$this->db->getIdSkill(),
-                'name'=>$this->db->getIdProject(),
+                'id'=>$obj->getIdSkill(),
+                'name'=>$obj->getIdProject(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -49,8 +49,8 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             # $this->connect();
             $query = "UPDATE associationSkillProject SET idProject=:idProject WHERE id=:id";
             $data = array(
-                'id'=>$this->db->getIdSkill(),
-                'name'=>$this->db->getIdProject(),
+                'id'=>$obj->getIdSkill(),
+                'name'=>$obj->getIdProject(),
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -68,7 +68,7 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             # $this->connect();
             $query = "DELETE FROM associationSkillProject WHERE idSkill=:idSkill ";
             $data = array(
-                ':idSkill'=>$this->db->getIdSkill()
+                ':idSkill'=>$obj->getIdSkill()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
