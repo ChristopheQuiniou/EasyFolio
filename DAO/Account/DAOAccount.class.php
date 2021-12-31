@@ -96,4 +96,10 @@ class DAOAccount extends DAO implements IDAO
             die();
         }
     }
+
+    // TODO code this method that return true if the email was found in database
+    public static function isEmailUsed(string $email): bool {
+
+    }
+
 }
