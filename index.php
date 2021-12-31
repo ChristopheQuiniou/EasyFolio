@@ -1,5 +1,8 @@
 <?php
 
+//Start session
+session_start();
+
 //Import database necessity
 require_once ("DataBase/logs.php");
 require_once ("DataBase/scripts.php");

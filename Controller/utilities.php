@@ -12,3 +12,30 @@ function GetParameter( Int $number = 1, Bool $protectFromXSS = false ) : ?String
     return $param;
 }
 
+function isConnected(){
+    return isset($_SESSION["Connected"]);
+}
+
+function setConnected(bool $disconnect = false) {
+    if ( $disconnect ) {
+        session_unset();
+        session_destroy();
+    } else {
+        $_SESSION["Connected"] = true;
+    }
+
+}
+
+
+function redirect(string $controller, string $action, array $params = null ){
+    $paramsStr = "";
+    $counter = 1;
+    if ( !is_null($params) ) {
+        foreach ($params as $param) {
+            $params .= "&param" . strval($counter) . "=$param";
+            $counter++;
+        }
+    }
+
+    header("Location:?controller=$controller&action=$action$paramsStr");
+}

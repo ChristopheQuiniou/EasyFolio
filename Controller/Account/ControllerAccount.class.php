@@ -4,7 +4,18 @@ class ControllerAccount
 {
 
     public static function Account($parameters){
-        echo "Your account";
+
+        if ( isConnected() ){
+            require_once ("View/Account/Account.php");
+        } else {
+            redirect("Account","Login");
+        }
+
+    }
+
+    public static function Disconnect($parameters){
+        setConnected(true);
+        redirect("Account","Login");
     }
 
     public static function Login($parameters){
@@ -46,7 +57,7 @@ class ControllerAccount
                 Account::isValidPassword($password)
             ){
                 //Create session
-
+                setConnected();
                 echo "GOOD";
             }  else {
                 echo "ERROR";
