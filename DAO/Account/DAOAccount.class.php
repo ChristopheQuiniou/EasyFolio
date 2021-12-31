@@ -6,7 +6,7 @@ class DAOAccount extends DAO implements IDAO
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO Account VALUES(:id,:name,:surname,:birthdate,:adress,:phoneNumber,:emailAdress,:password,:profilPicture)";
+            $query = "INSERT INTO account VALUES(:id,:name,:surname,:birthdate,:adress,:phoneNumber,:emailAdress,:password,:profilPicture)";
             $data = array(
                 'id'=>$this->db->getId(),
                 'name'=>$this->db->getName(),
@@ -18,10 +18,10 @@ class DAOAccount extends DAO implements IDAO
                 'password'=>$this->db->getPassword(),
                 'profilPicture'=>$this->db->getprofilPicture()
             );
-            $sth = $this->instance->prepare( $query );
-            $res = $sth->execute( $data );
-            $this->instance = null;
-            return $res;
+            $sth = DAO::$db->prepare( $query );
+            $result = $sth->execute( $data );
+            #$sth= null;
+            return $result;
         }catch (PDOException $e){
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();
@@ -31,7 +31,7 @@ class DAOAccount extends DAO implements IDAO
     public function read(int $id): ?object
     {
         try{
-            $query = "SELECT * FROM Account
+            $query = "SELECT * FROM account
                       WHERE id=:id";
             $data = array(
                 ":id" => $id
@@ -41,7 +41,7 @@ class DAOAccount extends DAO implements IDAO
 
             $account = null;
             if ( $sth->rowCount() == 1 ){
-                $account = new Account($result["id"],$result["name"],$result["surname"],$result["birthdate"],$result["address"],$result["phoneNumber"],$result["emailAddress"],$result["password"],$result["profilPicture"]);
+                $account = new account($result["id"],$result["name"],$result["surname"],$result["birthdate"],$result["address"],$result["phoneNumber"],$result["emailAddress"],$result["password"],$result["profilPicture"]);
             }
 
             return $account;
@@ -56,7 +56,7 @@ class DAOAccount extends DAO implements IDAO
     {
         try{
             #$this->connect();
-            $query = " UPDATE Adresse SET name=:name, surname=:surname, birthdate=:birthdate, adress=:adress,phoneNumber=:phoneNumber, emailAdress=:emailAdress, password=:password,profilPicture=:profilPicture WHERE id=:id ";
+            $query = " UPDATE account SET name=:name, surname=:surname, birthdate=:birthdate, adress=:adress,phoneNumber=:phoneNumber, emailAdress=:emailAdress, password=:password,profilPicture=:profilPicture WHERE id=:id ";
             $data = array(
                 'id'=>$this->db->getId(),
                 'name'=>$this->db->getName(),
@@ -68,10 +68,10 @@ class DAOAccount extends DAO implements IDAO
                 'password'=>$this->db->getPassword(),
                 'profilPicture'=>$this->db->getprofilPicture()
             );
-            $sth = $this->instance->prepare( $query );
-            $res=$sth->execute( $data );
-            $this->instance = null;
-            return $res;
+            $sth = DAO::$db->prepare( $query );
+            $result = $sth->execute( $data );
+            #$sth= null;
+            return $result;
         }catch (PDOException $e){
             print "Erreur !: " . $e->getMessage() . "<br/>";
             die();
@@ -82,14 +82,14 @@ class DAOAccount extends DAO implements IDAO
     {
         try{
             # $this->connect();
-            $query = "DELETE FROM Account WHERE id=:id ";
+            $query = "DELETE FROM acccount WHERE id=:id ";
             $data = array(
                 ':id'=>$this->db->getId()
             );
-            $sth = $this->instance->prepare( $query );
-            $res=$sth->execute( $data );
-            $this->instance = null;
-            return $res;
+            $sth = DAO::$db->prepare( $query );
+            $result = $sth->execute( $data );
+            #$sth= null;
+            return $result;
         }
         catch (PDOException $e){
             print "Erreur !: " . $e->getMessage() . "<br/>";
