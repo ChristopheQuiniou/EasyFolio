@@ -1,6 +1,6 @@
 <?php
 
-class ControllerAccount
+class ControllerAccount extends Controller
 {
 
     public static function Account($parameters){
@@ -54,21 +54,55 @@ class ControllerAccount
                 Account::isValidAddress($address) &&
                 Account::isValidPhoneNumber($phoneNumber) &&
                 Account::isValidEmail($email) &&
+                !DAOAccount::isEmailUsed($email) &&
                 Account::isValidPassword($password)
             ){
+
                 //Insert user in database
                 $account = new Account(Account::$DefaultId,$name,$surname,$birthdate,$address,$phoneNumber,$email,$password,Account::$DefaultPicture);
                 DAOAccount::create($account);
 
                 //Create session
                 setConnected();
-                echo "GOOD";
-            }  else {
-                echo "ERROR";
+
+                //Return to the caller that everything is ok
+                echo Controller::$SUCCESS_CODE;
+
+            } else {
+                echo Controller::$ERROR_CODE;
             }
 
         } else {
             require_once ("View/Account/Register.php");
         }
     }
+
+
+    /**
+     * Method that echo a message depending on how the email send is in the database
+     * @param $parameters : parameters in the URL it need to contain the email in the first parameter
+     * echo ERROR if the email is alread in use
+     * SUCCESS if no usage
+     * INVALID_PARAM if this is not a good email or wrong parameter number
+     */
+    public static function IsEmailUsed($parameters){
+        $email = GetParameter(1);
+
+        if ( Account::isValidEmail($email) ){
+
+            if ( DAOAccount::isEmailUsed($email) ){
+                echo Controller::$ERROR_CODE;
+            } else {
+                echo Controller::$SUCCESS_CODE;
+            }
+
+        } else {
+            echo Controller::$INVALID_PARAM_CODE;
+        }
+
+    }
+
+
+
+
 }

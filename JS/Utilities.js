@@ -1,3 +1,10 @@
+//CONST VALUE
+const ERROR_CODE = "ERROR";
+const SUCCESS_CODE = "SUCCESS";
+const INVALID_PARAM_CODE = "INVALID_PARAM";
+
+
+//CONST FONCTION
 const isValidName = ( name ) => {
     if ( name.length <= 2)
         return false;
@@ -61,14 +68,24 @@ const passwordsMatch = (password, password2) => {
 
 
 
-const showErrorMessage = (hint,input) => {
+const showMessage = (hint,input,message,error = true) => {
+
+    hint.innerText = message;
     hint.classList.remove("invisible");
-    input.classList.add("is-error");
+    if ( error ) {
+        input.classList.remove("is-success");
+        input.classList.add("is-error");
+    } else {
+        input.classList.remove("is-error");
+        input.classList.add("is-success");
+    }
 }
 
-const hideErrorMessage = (hint,input) => {
+const hideMessage = (hint,input) => {
     hint.classList.add("invisible");
     input.classList.remove("is-error");
+    input.classList.remove("is-success");
+    hint.innerText = "";
 }
 
 

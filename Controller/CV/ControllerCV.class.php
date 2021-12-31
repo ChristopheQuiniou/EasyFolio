@@ -1,6 +1,6 @@
 <?php
 
-class ControllerCV
+class ControllerCV extends Controller
 {
     public static function Search(Array $parameters){
         require_once ("View/CV/Search.php");

@@ -23,6 +23,7 @@ require_once ("DAO/Project/DAOProject.class.php");
 require_once ("DAO/AssociationSkillProject/DAOAssociationSkillProject.class.php");
 
 //Controller
+require_once ("Controller.class.php");
 require_once ("CV/ControllerCV.class.php");
 require_once ("Account/ControllerAccount.class.php");
 

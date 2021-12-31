@@ -6,9 +6,8 @@ class DAOAccount extends DAO implements IDAO
     {
         try{
             # $this->connect();
-            $query = "INSERT INTO Account VALUES(:id,:name,:surname,:birthdate,:address,:phoneNumber,:emailAddress,:password,:profilPicture)";
+            $query = "INSERT INTO Account (name,surname,birthdate,address,phoneNumber,emailAddress,password,profilPicture) VALUES (:name,:surname,:birthdate,:address,:phoneNumber,:emailAddress,:password,:profilPicture)";
             $data = array(
-                'id'=>$obj->getId(),
                 'name'=>$obj->getName(),
                 'surname'=>$obj->getSurname(),
                 'birthdate'=>$obj->getBirthdate(),
@@ -20,7 +19,10 @@ class DAOAccount extends DAO implements IDAO
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
-            #$sth= null;
+
+            //Update object id
+            $obj->setId($sth->lastInsertId());
+
             return $result;
         }catch (PDOException $e){
             print "Erreur !: " . $e->getMessage() . "<br/>";
@@ -99,7 +101,7 @@ class DAOAccount extends DAO implements IDAO
 
     // TODO code this method that return true if the email was found in database
     public static function isEmailUsed(string $email): bool {
-
+        return false;
     }
 
 }
