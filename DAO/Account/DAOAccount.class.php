@@ -103,7 +103,7 @@ class DAOAccount extends DAO implements IDAO
     public static function isEmailUsed(string $email): bool
     {
         try {
-            $query = "SELECT * FROM Account WHERE emailAdress=:emailAdress";
+            $query = "SELECT SELECT COUNT(*) FROM Account WHERE emailAdress=:emailAdress";
             $data = array(
                 ":emailAdress" => $email
             );
