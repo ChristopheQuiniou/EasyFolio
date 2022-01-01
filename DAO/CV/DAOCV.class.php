@@ -19,8 +19,8 @@ class DAOCV extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOCV une erreur c'est produite lors de la creation");
+            return false;
         }
     }
 
@@ -41,8 +41,7 @@ class DAOCV extends DAO implements IDAO
             }
             return $cv;
         } catch (PDOException $e){
-            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
-            require_once ("View/Error/Custom.php");
+            showErrorPage("DAOCV une erreur c'est produite lors de la lecture");
             return null;
         }
     }
@@ -63,9 +62,10 @@ class DAOCV extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }    }
+            showErrorPage("DAOCV une erreur c'est produite lors de la mise a jour");
+            return false;
+        }
+    }
 
     public static function delete(object $obj): bool
     {
@@ -81,8 +81,8 @@ class DAOCV extends DAO implements IDAO
             return $result;
         }
         catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOCV une erreur c'est produite lors de la suppression");
+            return false;
         }
     }
 }

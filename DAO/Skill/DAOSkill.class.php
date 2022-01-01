@@ -18,8 +18,8 @@ class DAOSkill extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOSkill une erreur c'est produite lors de la creation");
+            return false;
         }
     }
 
@@ -40,8 +40,7 @@ class DAOSkill extends DAO implements IDAO
             }
             return $skill;
         } catch (PDOException $e){
-            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
-            require_once ("View/Error/Custom.php");
+            showErrorPage("DAOSkill une erreur c'est produite lors de la lecture");
             return null;
         }
     }
@@ -60,8 +59,8 @@ class DAOSkill extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOSkill une erreur c'est produite lors de la mise a jour");
+            return false;
         }
     }
 
@@ -79,8 +78,8 @@ class DAOSkill extends DAO implements IDAO
             return $result;
         }
         catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOSkill une erreur c'est produite lors de la suppression");
+            return false;
         }
     }
 }

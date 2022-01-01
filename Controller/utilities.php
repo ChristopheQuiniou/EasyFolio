@@ -1,5 +1,7 @@
 <?php
 
+$UnavailableAction = "Cette action n'est pas disponible";
+$UnavailablePage = "Cette page n'est pas disponible ";
 
 function GetParameter( Int $number = 1, Bool $protectFromXSS = false ) : ?String {
     $getArray = $_GET;
@@ -24,6 +26,11 @@ function setConnected(bool $disconnect = false) {
         $_SESSION["Connected"] = true;
     }
 
+}
+
+function showErrorPage(string $message){
+    $errMsg = $message;
+    require_once ("View/Error/Custom.php");
 }
 
 

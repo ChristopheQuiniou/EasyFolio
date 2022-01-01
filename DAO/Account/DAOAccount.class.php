@@ -25,8 +25,8 @@ class DAOAccount extends DAO implements IDAO
 
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAccount une erreur c'est produite lors de la creation");
+            return false;
         }
     }
 
@@ -48,8 +48,7 @@ class DAOAccount extends DAO implements IDAO
 
             return $account;
         } catch (PDOException $e){
-            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
-            require_once ("View/Error/Custom.php");
+            showErrorPage("DAOAccount une erreur c'est produite lors de la lecture");
             return null;
         }
     }
@@ -75,8 +74,8 @@ class DAOAccount extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAccount une erreur c'est produite lors de la mise a jour");
+            return false;
         }
     }
 
@@ -94,8 +93,8 @@ class DAOAccount extends DAO implements IDAO
             return $result;
         }
         catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAccount une erreur c'est produite lors de la suppression");
+            return false;
         }
     }
 

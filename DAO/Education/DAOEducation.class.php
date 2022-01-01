@@ -20,8 +20,8 @@ class DAOEducation extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOEducation une erreur c'est produite lors de la creation");
+            return false;
         }
     }
 
@@ -43,8 +43,7 @@ class DAOEducation extends DAO implements IDAO
 
             return $education;
         } catch (PDOException $e){
-            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
-            require_once ("View/Error/Custom.php");
+            showErrorPage("DAOEducation une erreur c'est produite lors de la lecture");
             return null;
         }
     }
@@ -66,9 +65,10 @@ class DAOEducation extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }    }
+            showErrorPage("DAOEducation une erreur c'est produite lors de la mise a jour");
+            return false;
+        }
+    }
 
     public static function delete(object $obj): bool
     {
@@ -84,7 +84,8 @@ class DAOEducation extends DAO implements IDAO
             return $result;
         }
         catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }    }
+            showErrorPage("DAOEducation une erreur c'est produite lors de la suppression");
+            return false;
+        }
+    }
 }

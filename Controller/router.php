@@ -40,8 +40,7 @@ switch ($controller) {
         if ( method_exists("ControllerAccount",$action)) {
             ControllerAccount::$action($parameters);
         } else {
-            $errMsg = "Cette action n'est pas disponible ";
-            require_once ("View/Error/Custom.php");
+            showErrorPage($UnavailableAction);
         }
 
         break;
@@ -50,8 +49,8 @@ switch ($controller) {
         if ( method_exists("ControllerProject",$action)) {
             ControllerProject::$action($parameters);
         } else {
-            $errMsg = "Cette action n'est pas disponible ";
-            require_once ("View/Error/Custom.php");
+            showErrorPage($UnavailableAction);
+
         }
 
         break;
@@ -60,8 +59,7 @@ switch ($controller) {
         if ( method_exists("ControllerEducation",$action)) {
             ControllerEducation::$action($parameters);
         } else {
-            $errMsg = "Cette action n'est pas disponible ";
-            require_once ("View/Error/Custom.php");
+            showErrorPage($UnavailableAction);
         }
 
         break;
@@ -70,8 +68,7 @@ switch ($controller) {
         if ( method_exists("ControllerSkill",$action)) {
             ControllerSkill::$action($parameters);
         } else {
-            $errMsg = "Cette action n'est pas disponible ";
-            require_once ("View/Error/Custom.php");
+            showErrorPage($UnavailableAction);
         }
 
         break;
@@ -87,12 +84,10 @@ switch ($controller) {
             } else if ( method_exists("ControllerCV",$action)) {
                 ControllerCV::$action($parameters);
             } else {
-                $errMsg = "Cette action n'est pas disponible ";
-                require_once ("View/Error/Custom.php");
+                showErrorPage($UnavailableAction);
             }
         } else {
-            $errMsg = "Cette page n'est pas disponible ";
-            require_once ("View/Error/Custom.php");
+            showErrorPage($UnavailablePage);
         }
 
 

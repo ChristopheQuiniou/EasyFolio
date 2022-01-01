@@ -6,7 +6,6 @@ class DAOAssociationSkillProject extends DAO implements IDAO
     public static function create(object $obj): bool
     {
         try{
-            # $this->connect();
             $query = "INSERT INTO AssociationSkillProject VALUES(:idSkill,:idProject)";
             $data = array(
                 'id'=>$obj->getIdSkill(),
@@ -17,9 +16,10 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
-        }    }
+            showErrorPage("DAOAssociationSkillProject une erreur c'est produite lors de la creation");
+            return false;
+        }
+    }
 
     public static function read(int $id): ?object
     {
@@ -38,10 +38,11 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             }
             return $skill;
         } catch (PDOException $e){
-            $errMsg = "DAOAccount une erreur c'est produite lors de la lecture";
-            require_once ("View/Error/Custom.php");
+
+            showErrorPage("DAOAssociationSkillProject une erreur c'est produite lors de la lecture");
             return null;
-        }    }
+        }
+    }
 
     // TODO Fix the query
     public static function update(object $obj): bool
@@ -58,8 +59,8 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             #$sth= null;
             return $result;
         }catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAssociationSkillProject une erreur c'est produite lors de la mise a jour");
+            return false;
         }
     }
 
@@ -77,8 +78,8 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             return $result;
         }
         catch (PDOException $e){
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAssociationSkillProject une erreur c'est produite lors de la suppression");
+            return false;
         }
     }
 }
