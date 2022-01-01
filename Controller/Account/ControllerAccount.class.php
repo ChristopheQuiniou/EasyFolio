@@ -26,16 +26,27 @@ class ControllerAccount extends Controller
 
         //Check credentials
        if ( !is_null($email) && !is_null($password) ) {
-           echo "Checking your credentials " . $email . " " . $password;
+           //echo "Checking your credentials " . $email . " " . $password;
 
            if ( DAOAccount::goodCredentials($email,$password) ){
 
-           } else {
+               //Set session
+               setConnected();
 
+               //Return success to caller
+               echo Controller::$SUCCESS_CODE;
+
+           } else {
+               echo Controller::$ERROR_CODE;
            }
 
        } else {
-           require_once ("View/Account/Login.php");
+           //If already connected
+           if ( isConnected() ){
+               redirect("Account","Account");
+           } else {
+               require_once ("View/Account/Login.php");
+           }
        }
     }
 

@@ -12,6 +12,10 @@ let passwordInput = document.getElementById("password");
 let hintPassword = document.getElementById("hintPassword");
 let hintPasswordErrorMessage = "Ce mot de passe est invalide.";
 
+errorToastButton.onclick = () => {
+    hideErrorToast(errorToast);
+}
+
 button.onclick = () => {
 
     let email = emailInput.value;
@@ -38,8 +42,15 @@ button.onclick = () => {
         xhttp.open("GET",`?controller=Account&action=Login&param1=${email}&param2=${password}`, true);
         xhttp.onreadystatechange = () => {
 
-            if ( xhttp.readyState == 4 && xhttp.status == 200 ){
-                console.log(xhttp.responseText);
+            if ( xhttp.readyState === 4 && xhttp.status === 200 ){
+                let response = xhttp.responseText;
+
+                if ( response === SUCCESS_CODE ) {
+                    window.location.href = "?controller=Account&action=Account";
+                } else {
+                    showErrorToast(errorToast);
+                }
+
             }
         }
         xhttp.send();

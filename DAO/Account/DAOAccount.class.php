@@ -110,15 +110,28 @@ class DAOAccount extends DAO implements IDAO
             return ( $sth->rowCount() > 0 ) ? true : false;
 
         } catch (PDOException $e) {
-            showErrorPage("DAOAccount une erreur c'est produite lors du de isEmailUsed");
+            showErrorPage("DAOAccount une erreur c'est produite lors de isEmailUsed");
             return true;
         }
     }
 
-    
+
     public static function goodCredentials(string $email, string $password) : bool
     {
-        return true;
+        try {
+            $query = "SELECT id FROM Account WHERE emailAddress = :emailAddress AND password = :password";
+            $data = array(
+                ":emailAddress" => $email,
+                ":password" => $password
+            );
+            $sth = DAO::$db->prepare($query);
+            $sth->execute($data);
+            return ( $sth->rowCount() == 1 ) ? true : false;
+
+        } catch (PDOException $e) {
+            showErrorPage("DAOAccount une erreur c'est produite lors de goodCredentials");
+            return true;
+        }
     }
 
 }

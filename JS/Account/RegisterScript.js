@@ -129,7 +129,7 @@ button.onclick = () => {
                 //console.log(xhttp.responseText);
                 let response = xhttp.responseText;
                 if (response === SUCCESS_CODE){
-                    window.location.href = "?controller=Account&action=Account"
+                    window.location.href = "?controller=Account&action=Account";
                 } else {
                     showErrorToast(errorToast);
                 }
