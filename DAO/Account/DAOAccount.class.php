@@ -98,7 +98,6 @@ class DAOAccount extends DAO implements IDAO
         }
     }
 
-    // TODO code this method that return true if the email was found in database
     public static function isEmailUsed(string $email): bool
     {
         try {
@@ -114,6 +113,12 @@ class DAOAccount extends DAO implements IDAO
             showErrorPage("DAOAccount une erreur c'est produite lors du de isEmailUsed");
             return true;
         }
+    }
+
+    
+    public static function goodCredentials(string $email, string $password) : bool
+    {
+        return true;
     }
 
 }

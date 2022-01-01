@@ -28,6 +28,11 @@ class ControllerAccount extends Controller
        if ( !is_null($email) && !is_null($password) ) {
            echo "Checking your credentials " . $email . " " . $password;
 
+           if ( DAOAccount::goodCredentials($email,$password) ){
+
+           } else {
+
+           }
 
        } else {
            require_once ("View/Account/Login.php");

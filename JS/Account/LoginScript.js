@@ -1,10 +1,16 @@
 
 let button = document.getElementById("btn");
+
+let errorToast = document.getElementById("errorToast");
+let errorToastButton = document.getElementById("errorToastButton");
+
 let emailInput = document.getElementById("email");
 let hintEmail = document.getElementById("hintEmail");
+let hintEmailErrorMessage = "Cette adresse mail est invalide.";
+
 let passwordInput = document.getElementById("password");
 let hintPassword = document.getElementById("hintPassword");
-
+let hintPasswordErrorMessage = "Ce mot de passe est invalide.";
 
 button.onclick = () => {
 
@@ -13,16 +19,16 @@ button.onclick = () => {
 
     if ( !isValidEmail(email) ){
         //Display error
-        showErrorMessage(hintEmail,emailInput);
+        showMessage(hintEmail,emailInput,hintEmailErrorMessage);
     } else {
-        hideErrorMessage(hintEmail,emailInput);
+        hideMessage(hintEmail,emailInput);
     }
 
 
     if ( !isValidPassword(password) ){
-        showErrorMessage(hintPassword,passwordInput);
+        showMessage(hintPassword,passwordInput,hintPasswordErrorMessage);
     } else {
-        hideErrorMessage(hintPassword,passwordInput);
+        hideMessage(hintPassword,passwordInput);
     }
 
 
@@ -43,3 +49,30 @@ button.onclick = () => {
 
 }
 
+
+
+
+emailInput.onchange = () => {
+
+    let email = emailInput.value;
+
+    if ( !isValidEmail(email) ){
+        //Display error
+        showMessage(hintEmail,emailInput,hintEmailErrorMessage);
+    } else {
+        hideMessage(hintEmail,emailInput);
+    }
+
+}
+
+
+passwordInput.onchange = () => {
+
+    let password = passwordInput.value;
+
+    if (!isValidPassword(password)) {
+        showMessage(hintPassword, passwordInput, hintPasswordErrorMessage);
+    } else {
+        hideMessage(hintPassword, passwordInput);
+    }
+}

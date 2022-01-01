@@ -14,6 +14,13 @@
             </div>
             <div class="col-4">
                 <div class="form-group">
+
+                    <div class="toast toast-error invisible" id="errorToast">
+                        <button class="btn btn-clear float-right" id="errorToastButton"></button>
+                        Authentification échouée, veuillez verifier vos champs.
+                    </div>
+                    <div class="spacer-1"></div>
+
                     <label class="form-label" for="email">Email</label>
                     <input class="form-input" type="email" id="email" placeholder="Adresse mail" required>
                     <p class="form-input-hint invisible" id="hintEmail">Cette adresse mail est invalide.</p>
