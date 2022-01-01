@@ -74,8 +74,10 @@ class ControllerAccount extends Controller
                 Account::isValidPassword($password)
             ){
 
+
+
                 //Insert user in database
-                $account = new Account(Account::$DefaultId,$name,$surname,$birthdate,$address,$phoneNumber,$email,$password,Account::$DefaultPicture);
+                $account = new Account(Account::$DefaultId,$name,$surname,$birthdate,$address,$phoneNumber,$email,password_hash($password,PASSWORD_DEFAULT),Account::$DefaultPicture);
                 DAOAccount::create($account);
 
                 //Create session

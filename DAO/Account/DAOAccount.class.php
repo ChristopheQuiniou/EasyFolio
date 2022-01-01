@@ -63,11 +63,11 @@ class DAOAccount extends DAO implements IDAO
                 'name'=>$obj->getName(),
                 'surname'=>$obj->getSurname(),
                 'birthdate'=>$obj->getBithdate(),
-                'adress'=>$obj->getAdress(),
+                'address'=>$obj->getAddress(),
                 'phoneNumber'=>$obj->getPhoneNumber(),
-                'emailAdress'=>$obj->getEmailAdress(),
+                'emailAddress'=>$obj->getEmailAddress(),
                 'password'=>$obj->getPassword(),
-                'profilPicture'=>$obj->getprofilPicture()
+                'profilPicture'=>$obj->getProfilPicture()
             );
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
@@ -119,19 +119,31 @@ class DAOAccount extends DAO implements IDAO
     public static function goodCredentials(string $email, string $password) : bool
     {
         try {
-            $query = "SELECT id FROM Account WHERE emailAddress = :emailAddress AND password = :password";
+            $query = "SELECT password FROM Account WHERE emailAddress = :emailAddress";
             $data = array(
-                ":emailAddress" => $email,
-                ":password" => $password
+                ":emailAddress" => $email
             );
             $sth = DAO::$db->prepare($query);
             $sth->execute($data);
-            return ( $sth->rowCount() == 1 ) ? true : false;
+            $result = $sth->fetch();
+
+            if ( $sth->rowCount() == 1 ) {
+
+                if ( password_verify($password,$result["password"]) ){
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
 
         } catch (PDOException $e) {
             showErrorPage("DAOAccount une erreur c'est produite lors de goodCredentials");
             return true;
         }
+
     }
 
 }
