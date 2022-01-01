@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `Skill`;
 DROP TABLE IF EXISTS `Account`;
 
 CREATE TABLE `Account`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT ,
   `name` varchar(255) NULL,
   `surname` varchar(255) NULL,
   `birthdate` varchar(10) NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `AssociationSkillProject`  (
 );
 
 CREATE TABLE `CV`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT ,
   `title` varchar(255) NULL,
   `description` varchar(255) NULL,
   `theAccount` int NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `CV`  (
 
 
 CREATE TABLE `Education`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT ,
   `title` varchar(255) NULL,
   `start` varchar(10) NULL,
   `end` varchar(10) NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `Education`  (
 );
 
 CREATE TABLE `Project`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT ,
   `title` varchar(255) NULL,
   `startDate` varchar(10) NULL,
   `endDate` varchar(10) NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `Project`  (
 );
 
 CREATE TABLE `Skill`  (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT ,
   `name` varchar(255) NULL,
   PRIMARY KEY (`id`)
 );

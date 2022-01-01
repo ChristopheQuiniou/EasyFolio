@@ -21,7 +21,7 @@ class DAOAccount extends DAO implements IDAO
             $result = $sth->execute( $data );
 
             //Update object id
-            $obj->setId($sth->lastInsertId());
+            $obj->setId(DAO::$db->lastInsertId());
 
             return $result;
         }catch (PDOException $e){
@@ -102,17 +102,17 @@ class DAOAccount extends DAO implements IDAO
     public static function isEmailUsed(string $email): bool
     {
         try {
-            $query = "SELECT COUNT(*) FROM Account WHERE emailAdress=:emailAdress";
+            $query = "SELECT id FROM Account WHERE emailAddress = :emailAddress";
             $data = array(
-                ":emailAdress" => $email
+                ":emailAddress" => $email
             );
             $sth = DAO::$db->prepare($query);
-            $result = $sth->execute($data);
-            $count = $result->fetchColumn();
-            return $count == 0;
+            $sth->execute($data);
+            return ( $sth->rowCount() > 0 ) ? true : false;
+
         } catch (PDOException $e) {
-            print "Erreur !: " . $e->getMessage() . "<br/>";
-            die();
+            showErrorPage("DAOAccount une erreur c'est produite lors du de isEmailUsed");
+            return true;
         }
     }
 
