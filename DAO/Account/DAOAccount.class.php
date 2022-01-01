@@ -99,8 +99,21 @@ class DAOAccount extends DAO implements IDAO
     }
 
     // TODO code this method that return true if the email was found in database
-    public static function isEmailUsed(string $email): bool {
-        return false;
+    public static function isEmailUsed(string $email): bool
+    {
+        try {
+            $query = "SELECT COUNT(*) FROM Account WHERE emailAdress=:emailAdress";
+            $data = array(
+                ":emailAdress" => $email
+            );
+            $sth = DAO::$db->prepare($query);
+            $result = $sth->execute($data);
+            $count = $result->fetchColumn();
+            return $count == 0;
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
     }
 
 }
