@@ -85,4 +85,14 @@ class DAOCV extends DAO implements IDAO
             return false;
         }
     }
+
+    //Return an array of CV that have this skill
+    //Return null if nothing found
+    public static function matchSkill($skill) : ?Array {
+
+        
+
+
+    }
+
 }
