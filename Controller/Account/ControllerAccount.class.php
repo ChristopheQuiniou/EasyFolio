@@ -5,16 +5,37 @@ class ControllerAccount extends Controller
 
     public static function Account($parameters){
 
-        if ( isConnected() ){
-            require_once ("View/Account/Account.php");
+        $account = null;
+        $title = "Mon compte";
+        $profilPicture = Account::$DefaultPicture;
+        $name = "Default";
+        $surname = "Account";
+
+        $paramId = GetParameter();
+
+        //View someone else account
+        if ( !is_null($paramId) || isConnected() ){
+
+
+            if ( !is_null($paramId) ){
+                $account = DAOAccount::read($paramId);
+                $title = $account->getName();
+            } else {
+                $account = DAOAccount::read($_SESSION["Id"]);
+            }
+
+                $name = $account->getName();
+                $surname = $account->getSurname();
+                require_once ("View/Account/Account.php");
+
         } else {
-            redirect("Account","Login");
+            redirect("Account", "Login");
         }
 
     }
 
     public static function Disconnect($parameters){
-        setConnected(true);
+        disconnect();
         redirect("Account","Login");
     }
 
@@ -27,11 +48,11 @@ class ControllerAccount extends Controller
         //Check credentials
        if ( !is_null($email) && !is_null($password) ) {
            //echo "Checking your credentials " . $email . " " . $password;
-
-           if ( DAOAccount::goodCredentials($email,$password) ){
+           $id = DAOAccount::goodCredentials($email,$password);
+           if ( $id ){
 
                //Set session
-               setConnected();
+               connect($id);
 
                //Return success to caller
                echo Controller::$SUCCESS_CODE;
@@ -78,10 +99,10 @@ class ControllerAccount extends Controller
 
                 //Insert user in database
                 $account = new Account(Account::$DefaultId,$name,$surname,$birthdate,$address,$phoneNumber,$email,password_hash($password,PASSWORD_DEFAULT),Account::$DefaultPicture);
-                DAOAccount::create($account);
+                $id = DAOAccount::create($account);
 
                 //Create session
-                setConnected();
+                connect($id);
 
                 //Return to the caller that everything is ok
                 echo Controller::$SUCCESS_CODE;

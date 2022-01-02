@@ -3,7 +3,7 @@
 interface IDAO
 {
 
-    public static function create( object $obj ) : bool;
+    public static function create( object $obj ) : int;
 
     public static function read( int $id ) : ?object ;
 

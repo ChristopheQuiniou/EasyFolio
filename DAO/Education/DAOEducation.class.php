@@ -3,7 +3,7 @@
 class DAOEducation extends DAO implements IDAO
 {
 
-    public static function create(object $obj): bool
+    public static function create(object $obj): int
     {
         try{
             # $this->connect();
@@ -18,10 +18,10 @@ class DAOEducation extends DAO implements IDAO
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
             #$sth= null;
-            return $result;
+            return DAO::$db->lastInsertId();
         }catch (PDOException $e){
             showErrorPage("DAOEducation une erreur c'est produite lors de la creation");
-            return false;
+            return 0;
         }
     }
 

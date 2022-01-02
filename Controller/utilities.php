@@ -3,30 +3,33 @@
 $UnavailableAction = "Cette action n'est pas disponible";
 $UnavailablePage = "Cette page n'est pas disponible ";
 
-function GetParameter( Int $number = 1, Bool $protectFromXSS = false ) : ?String {
+function GetParameter( Int $number = 1, Bool $sanitize = false ) : ?String {
     $getArray = $_GET;
     $param = ( isset($getArray["param".strval($number)]) && !empty($getArray["param".strval($number)]) ) ? $getArray["param".strval($number)] : null;
 
-    if ( !is_null($param) && $protectFromXSS ){
-        $param = htmlentities($param);
+    if ( !is_null($param) && $sanitize ){
+        $param = htmlspecialchars($param);
     }
 
     return $param;
 }
 
 function isConnected(){
-    return isset($_SESSION["Connected"]);
+    return isset($_SESSION["Connected"]) && isset($_SESSION["Id"]);
 }
 
-function setConnected(bool $disconnect = false) {
-    if ( $disconnect ) {
-        session_unset();
-        session_destroy();
-    } else {
-        $_SESSION["Connected"] = true;
-    }
-
+function connect(int $id){
+    //disconnect();
+    session_unset();
+    $_SESSION["Id"] = $id;
+    $_SESSION["Connected"] = true;
 }
+
+function disconnect(){
+    session_unset();
+    session_destroy();
+}
+
 
 function showErrorPage(string $message){
     $errMsg = $message;

@@ -2,7 +2,7 @@
 
 class DAOAccount extends DAO implements IDAO
 {
-    public static function create(object $obj): bool
+    public static function create(object $obj): int
     {
         try{
             # $this->connect();
@@ -21,12 +21,13 @@ class DAOAccount extends DAO implements IDAO
             $result = $sth->execute( $data );
 
             //Update object id
-            $obj->setId(DAO::$db->lastInsertId());
+            $lastId = DAO::$db->lastInsertId();
+            $obj->setId($lastId);
 
-            return $result;
+            return $lastId;
         }catch (PDOException $e){
             showErrorPage("DAOAccount une erreur c'est produite lors de la creation");
-            return false;
+            return 0;
         }
     }
 
@@ -39,7 +40,8 @@ class DAOAccount extends DAO implements IDAO
                 ":id" => $id
             );
             $sth = DAO::$db->prepare( $query );
-            $result = $sth->execute( $data );
+            $sth->execute( $data );
+            $result = $sth->fetch();
 
             $account = null;
             if ( $sth->rowCount() == 1 ){
@@ -116,10 +118,10 @@ class DAOAccount extends DAO implements IDAO
     }
 
 
-    public static function goodCredentials(string $email, string $password) : bool
+    public static function goodCredentials(string $email, string $password) : int
     {
         try {
-            $query = "SELECT password FROM Account WHERE emailAddress = :emailAddress";
+            $query = "SELECT id, password FROM Account WHERE emailAddress = :emailAddress";
             $data = array(
                 ":emailAddress" => $email
             );
@@ -130,18 +132,18 @@ class DAOAccount extends DAO implements IDAO
             if ( $sth->rowCount() == 1 ) {
 
                 if ( password_verify($password,$result["password"]) ){
-                    return true;
+                    return (int)$result["id"];
                 } else {
-                    return false;
+                    return 0;
                 }
 
             } else {
-                return false;
+                return 0;
             }
 
         } catch (PDOException $e) {
             showErrorPage("DAOAccount une erreur c'est produite lors de goodCredentials");
-            return true;
+            return 0;
         }
 
     }

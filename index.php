@@ -10,7 +10,7 @@ require_once ("DataBase/scripts.php");
 
 
 //Try to connect to the database
-$db = connect($user,$password,$database);
+$db = connectToDatabase($user,$password,$database);
 
 //If connexion failed display error page
 if ( is_null($db) ){

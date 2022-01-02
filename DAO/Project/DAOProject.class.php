@@ -3,7 +3,7 @@
 class DAOProject extends DAO implements IDAO
 {
 
-    public static function create(object $obj): bool
+    public static function create(object $obj): int
     {
         try{
             # $this->connect();
@@ -21,12 +21,12 @@ class DAOProject extends DAO implements IDAO
                 'theCV'=>$obj->getTheCV()
             );
             $sth = DAO::$db->prepare( $query );
-            $result = $sth->execute( $data );
-            #$sth= null;
-            return $result;
+            $sth->execute( $data );
+
+            return DAO::$db->lastInsertId();
         }catch (PDOException $e){
             showErrorPage("DAOProject une erreur c'est produite lors de la creation");
-            return false;
+            return 0;
         }
     }
 

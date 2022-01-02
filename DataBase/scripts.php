@@ -1,6 +1,6 @@
 <?php
 
-function connect($user,$password,$database){
+function connectToDatabase($user,$password,$database){
     $db = null;
     try {
         $db = new PDO("mysql:host=localhost;dbname=$database",$user,$password);

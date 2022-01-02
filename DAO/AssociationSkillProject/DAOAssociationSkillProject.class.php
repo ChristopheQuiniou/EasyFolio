@@ -3,7 +3,7 @@
 class DAOAssociationSkillProject extends DAO implements IDAO
 {
 
-    public static function create(object $obj): bool
+    public static function create(object $obj): int
     {
         try{
             $query = "INSERT INTO AssociationSkillProject VALUES(:idSkill,:idProject)";
@@ -14,10 +14,10 @@ class DAOAssociationSkillProject extends DAO implements IDAO
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
             #$sth= null;
-            return $result;
+            return 1;
         }catch (PDOException $e){
             showErrorPage("DAOAssociationSkillProject une erreur c'est produite lors de la creation");
-            return false;
+            return 0;
         }
     }
 

@@ -3,7 +3,7 @@
 class DAOCV extends DAO implements IDAO
 {
 
-    public static function create(object $obj): bool
+    public static function create(object $obj): int
     {
         try{
             # $this->connect();
@@ -17,10 +17,10 @@ class DAOCV extends DAO implements IDAO
             $sth = DAO::$db->prepare( $query );
             $result = $sth->execute( $data );
             #$sth= null;
-            return $result;
+            return DAO::$db->lastInsertId();
         }catch (PDOException $e){
             showErrorPage("DAOCV une erreur c'est produite lors de la creation");
-            return false;
+            return 0;
         }
     }
 
@@ -90,7 +90,7 @@ class DAOCV extends DAO implements IDAO
     //Return null if nothing found
     public static function matchSkill($skill) : ?Array {
 
-        
+
 
 
     }
