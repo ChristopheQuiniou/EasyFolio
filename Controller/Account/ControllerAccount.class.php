@@ -19,13 +19,14 @@ class ControllerAccount extends Controller
 
             if ( !is_null($paramId) ){
                 $account = DAOAccount::read($paramId);
-                $title = $account->getName();
+                $title = "Profil";
             } else {
                 $account = DAOAccount::read($_SESSION["Id"]);
             }
 
                 $name = $account->getName();
                 $surname = $account->getSurname();
+                $profilPicture = $account->getProfilPicture();
                 require_once ("View/Account/Account.php");
 
         } else {

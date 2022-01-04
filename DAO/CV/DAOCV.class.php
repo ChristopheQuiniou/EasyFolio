@@ -90,8 +90,40 @@ class DAOCV extends DAO implements IDAO
     //Return null if nothing found
     public static function matchSkill($skill) : ?Array {
 
+        try{
+            $query = "
+                SELECT SASP.*
+                FROM (
+                    SELECT CV.id AS cvId, CV.title AS cvTitle, CV.description AS cvDescription, Account.name AS accountName, Account.surname AS accountSurname, Account.id AS accountId, COUNT(Skill.id) AS nbProject
+                    FROM Skill,
+                     AssociationSkillProject,
+                     Project,
+                     CV,
+                     Account
+                    WHERE Skill.name = :skill
+                    AND AssociationSkillProject.idSkill = Skill.id
+                    AND AssociationSkillProject.idProject = Project.id
+                    AND Project.theCV = CV.id
+                    AND CV.theAccount = Account.id
+                    GROUP BY CV.id
+                    ORDER BY COUNT(Skill.id) DESC
+                    ) AS SASP
+                GROUP BY SASP.accountId
+                HAVING MAX(SASP.nbProject)
+            ";
 
+            $data = array(
+                ':skill'=>$skill
+            );
 
+            $sth = DAO::$db->prepare( $query );
+            $sth->execute( $data );
+            return $sth->fetchAll();
+        }
+        catch (PDOException $e){
+            showErrorPage("DAOCV une erreur c'est produite lors de la matchSkill");
+            return null;
+        }
 
     }
 
