@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Ahmad Tolba</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="/CV.css">
-
-    <script src="JS/Utilities.js"></script>
-
-</head>
-
-<body>
-
-<?php require_once("../../../View/Header/Header.php"); ?>
+<?php require_once ("View/Head.php"); ?>
 
 <div class="container grid-lg">
     <header>
@@ -358,4 +336,4 @@
         </div>
     </section>
 </div>
-<?php require_once ("../../../View/EndBody.php"); ?>
+<?php require_once ("View/EndBody.php"); ?>
