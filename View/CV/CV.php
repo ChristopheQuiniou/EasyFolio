@@ -5,7 +5,7 @@
         <div class="columns">
             <div class="column col-6 col-mx-auto">
                 <div class="title float-left">
-                    <h1 class="text-primary">Prenom Nom</h1>
+                    <h1 class="text-primary">Nom Prenom</h1>
                     <span>Software Engineer</span>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                     <span>+33 XXXXXXXXX</span>
                     <br/>
                     <span>
-																<a href="https://ahmgeek.com">site.com</a>
+																<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ", target="_blank">site.com</a>
 															</span>
                     <br/>
                     <span>Ville, Pays</span>
